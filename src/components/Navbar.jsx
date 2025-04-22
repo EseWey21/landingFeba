@@ -176,7 +176,6 @@ const Navbar = () => {
             ))}
           </ul>
           <motion.div className="navbar-cta" variants={itemVariants}>
-            <button className="btn btn-secondary">Iniciar sesión</button>
           </motion.div>
         </motion.div>
 
@@ -224,7 +223,6 @@ const Navbar = () => {
                     transition: { delay: 0.6 },
                   }}
                 >
-                  <button className="btn btn-primary">Iniciar sesión</button>
                   <button className="btn btn-cta">Cotiza tu proyecto</button>
                 </motion.div>
               </div>
