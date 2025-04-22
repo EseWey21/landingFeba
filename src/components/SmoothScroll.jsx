@@ -1,79 +1,114 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import "../styles/SmoothScroll.css"
 
 const SmoothScroll = ({ children }) => {
   const scrollingContainerRef = useRef(null)
+  const [isMobile, setIsMobile] = useState(false)
   const data = useRef({
     ease: 0.1,
     current: 0,
     previous: 0,
     rounded: 0,
   })
+  const rafId = useRef(null)
 
+  // Detectar si es un dispositivo móvil o táctil
   useEffect(() => {
-    // Don't apply smooth scroll on touch devices
-    if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+    const checkMobile = () => {
+      return "ontouchstart" in window || navigator.maxTouchPoints > 0
+    }
+
+    setIsMobile(checkMobile())
+
+    // Si es un dispositivo móvil, no aplicamos el smooth scroll personalizado
+    if (checkMobile()) {
       return
     }
 
-    requestAnimationFrame(() => smoothScrolling())
-
     const scrollingContainer = scrollingContainerRef.current
-    const bodyHeight = () => {
-      const scrollingContainerHeight = scrollingContainer.getBoundingClientRect().height
-      document.body.style.height = `${scrollingContainerHeight}px`
-    }
 
-    bodyHeight()
-
-    const handleResize = () => {
-      bodyHeight()
-    }
-
-    // Ensure smooth scrolling works with anchor links
-    const handleHashChange = () => {
-      if (window.location.hash) {
-        const targetElement = document.querySelector(window.location.hash)
-        if (targetElement) {
-          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY
-          window.scrollTo({
-            top: targetPosition,
-            behavior: "smooth",
-          })
-        }
+    // Configurar la altura del body para permitir el scroll
+    const setBodyHeight = () => {
+      if (scrollingContainer) {
+        const scrollingContainerHeight = scrollingContainer.getBoundingClientRect().height
+        document.body.style.height = `${scrollingContainerHeight}px`
       }
     }
 
+    setBodyHeight()
+
+    // Iniciar la animación de scroll
+    startSmoothScrolling()
+
+    // Manejar cambios de tamaño de ventana
+    const handleResize = () => {
+      setBodyHeight()
+    }
+
     window.addEventListener("resize", handleResize)
-    window.addEventListener("hashchange", handleHashChange)
 
     return () => {
       window.removeEventListener("resize", handleResize)
-      window.removeEventListener("hashchange", handleHashChange)
+      // Limpiar el requestAnimationFrame al desmontar
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current)
+      }
+      // Restaurar la altura del body
+      document.body.style.height = ""
     }
   }, [])
 
-  const smoothScrolling = () => {
-    // Don't apply smooth scroll on touch devices
-    if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
-      return
+  // Función para iniciar el smooth scrolling
+  const startSmoothScrolling = () => {
+    // Función de animación para el smooth scroll
+    const smoothScrolling = () => {
+      data.current.current = window.scrollY
+      data.current.previous += (data.current.current - data.current.previous) * data.current.ease
+      data.current.rounded = Math.round(data.current.previous * 100) / 100
+
+      if (scrollingContainerRef.current) {
+        scrollingContainerRef.current.style.transform = `translateY(-${data.current.rounded}px)`
+      }
+
+      rafId.current = requestAnimationFrame(smoothScrolling)
     }
 
-    data.current.current = window.scrollY
-    data.current.previous += (data.current.current - data.current.previous) * data.current.ease
-    data.current.rounded = Math.round(data.current.previous * 100) / 100
-
-    if (scrollingContainerRef.current) {
-      scrollingContainerRef.current.style.transform = `translateY(-${data.current.rounded}px)`
-    }
-
-    requestAnimationFrame(() => smoothScrolling())
+    rafId.current = requestAnimationFrame(smoothScrolling)
   }
 
-  // If touch device, don't apply smooth scroll
-  if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+  // Manejar la navegación a secciones específicas
+  useEffect(() => {
+    if (isMobile) return
+
+    // Función para manejar clics en enlaces internos
+    const handleAnchorClick = (e) => {
+      const target = e.target.closest('a[href^="#"]')
+      if (!target) return
+
+      const id = target.getAttribute("href").slice(1)
+      const element = document.getElementById(id)
+
+      if (element) {
+        e.preventDefault()
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY
+        window.scrollTo({
+          top: elementPosition,
+          behavior: "smooth",
+        })
+      }
+    }
+
+    document.addEventListener("click", handleAnchorClick)
+
+    return () => {
+      document.removeEventListener("click", handleAnchorClick)
+    }
+  }, [isMobile])
+
+  // Si es un dispositivo móvil, renderizamos normalmente sin el smooth scroll
+  if (isMobile) {
     return <>{children}</>
   }
 

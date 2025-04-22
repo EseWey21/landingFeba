@@ -12,7 +12,14 @@ const ProjectCard = ({ project }) => {
     e.preventDefault()
     const section = document.getElementById(sectionId)
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" })
+      // Calcular la posición de la sección
+      const sectionPosition = section.getBoundingClientRect().top + window.scrollY
+
+      // Scroll suave a la sección
+      window.scrollTo({
+        top: sectionPosition,
+        behavior: "smooth",
+      })
     }
   }
 

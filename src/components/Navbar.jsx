@@ -22,8 +22,14 @@ const Navbar = () => {
       // Cerrar el menú móvil si está abierto
       if (isOpen) setIsOpen(false)
 
+      // Calcular la posición de la sección
+      const sectionPosition = section.getBoundingClientRect().top + window.scrollY
+
       // Scroll suave a la sección
-      section.scrollIntoView({ behavior: "smooth" })
+      window.scrollTo({
+        top: sectionPosition,
+        behavior: "smooth",
+      })
     }
   }
 
