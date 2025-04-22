@@ -1,0 +1,56 @@
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+
+.cursor-follower-circle {
+  position: absolute;
+  top: -24px;
+  left: -24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transform: scale(1);
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.cursor-follower-dot {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+  transform: scale(1);
+  transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.cursor-follower.hidden {
+  opacity: 0;
+}
+
+.cursor-follower.clicked .cursor-follower-circle {
+  transform: scale(0.8);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cursor-follower.clicked .cursor-follower-dot {
+  transform: scale(1.5);
+}
+
+.cursor-follower.link-hovered .cursor-follower-circle {
+  transform: scale(1.5);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.cursor-follower.link-hovered .cursor-follower-dot {
+  transform: scale(0.5);
+}

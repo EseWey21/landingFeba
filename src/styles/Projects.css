@@ -1,0 +1,71 @@
+.projects {
+  background-color: var(--white);
+  position: relative;
+}
+
+.projects-filter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--navy);
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  color: var(--turquoise);
+}
+
+.filter-btn.active {
+  color: var(--turquoise);
+  font-weight: 600;
+}
+
+.filter-indicator {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--turquoise);
+  border-radius: 1px;
+}
+
+.projects-grid-container {
+  position: relative;
+  min-height: 400px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.projects-cta {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.projects-cta h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.projects-cta p {
+  margin-bottom: 1.5rem;
+  color: var(--navy);
+  opacity: 0.8;
+}

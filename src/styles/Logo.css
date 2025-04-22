@@ -1,0 +1,25 @@
+.logo {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.logo-text {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.logo-highlight {
+  color: var(--turquoise);
+}
+
+.logo-dot {
+  position: absolute;
+  right: -8px;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+}

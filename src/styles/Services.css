@@ -1,0 +1,60 @@
+.services {
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.services-bg-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.services-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.05;
+}
+
+.circle-1 {
+  width: 400px;
+  height: 400px;
+  background-color: var(--turquoise);
+  top: -100px;
+  left: -100px;
+}
+
+.circle-2 {
+  width: 300px;
+  height: 300px;
+  background-color: var(--orange);
+  bottom: -50px;
+  right: -50px;
+}
+
+.circle-3 {
+  width: 200px;
+  height: 200px;
+  background-color: var(--navy);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}

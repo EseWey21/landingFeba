@@ -1,0 +1,152 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: transparent;
+  transform: translateY(0);
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  z-index: 1001;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.navbar-links li a {
+  font-weight: 500;
+  transition: var(--transition);
+  color: var(--navy);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.navbar-links li a:hover {
+  color: var(--turquoise);
+}
+
+.navbar-links li a.active {
+  color: var(--turquoise);
+  font-weight: 600;
+}
+
+.active-indicator {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--turquoise);
+  border-radius: 1px;
+}
+
+.navbar-cta .btn {
+  padding: 0.5rem 1.25rem;
+}
+
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+  color: var(--navy);
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--white);
+    z-index: 1000;
+  }
+
+  .mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 2rem;
+  }
+
+  .mobile-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .mobile-links li a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--navy);
+    transition: var(--transition);
+  }
+
+  .mobile-links li a:hover,
+  .mobile-links li a.active {
+    color: var(--turquoise);
+  }
+
+  .mobile-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .mobile-cta .btn {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+  }
+}

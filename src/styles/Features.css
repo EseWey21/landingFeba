@@ -1,0 +1,121 @@
+.features {
+  background-color: var(--off-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.features-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.features-bg-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 31, 54, 0.03) 0%, rgba(0, 191, 216, 0.03) 100%);
+}
+
+.features-bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(0, 191, 216, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 5rem;
+}
+
+.features-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.features-showcase-content h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--navy);
+}
+
+.features-showcase-content p {
+  margin-bottom: 1.5rem;
+  color: var(--navy);
+  opacity: 0.8;
+}
+
+.features-list {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.features-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--navy);
+}
+
+.features-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--turquoise);
+}
+
+.features-showcase-image {
+  position: relative;
+}
+
+.features-image-container {
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.features-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .features-showcase {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .features-list li {
+    text-align: left;
+  }
+
+  .features-showcase-image {
+    margin-top: 2rem;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
