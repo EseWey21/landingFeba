@@ -30,7 +30,7 @@ const Services = () => {
       id: 4,
       icon: <PuzzlePiece size={48} />,
       title: "Software a la medida",
-      description: "Soluciones personalizadas para negocios locales como clínicas, gimnasios y veterinarias.",
+      description: "Soluciones personalizadas para negocios locales.",
     },
   ]
 
