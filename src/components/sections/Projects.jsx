@@ -77,7 +77,7 @@ const Projects = () => {
         <ScrollReveal>
           <div className="section-header">
             <h2 className="section-title">Lo que hemos creado</h2>
-            <p className="section-subtitle">Conoce algunos de nuestros proyectos más destacados</p>
+            <p className="section-subtitle">Conoce algunos de nuestros proyectos más solicitados</p>
           </div>
         </ScrollReveal>
 
