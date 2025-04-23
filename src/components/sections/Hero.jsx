@@ -3,6 +3,8 @@
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import "../../styles/Hero.css"
+import codigoImg from "../../assets/codigo.png";
+
 
 const Hero = () => {
   const containerVariants = {
@@ -143,7 +145,7 @@ const Hero = () => {
         <motion.div className="hero-image" variants={imageVariants}>
           <div className="hero-image-container">
             <div className="hero-image-overlay"></div>
-            <img src="/placeholder.svg?height=500&width=600" alt="Soluciones digitales" />
+            <img src={codigoImg} alt="Soluciones digitales" />
           </div>
         </motion.div>
       </motion.div>
