@@ -13,6 +13,7 @@ const SmoothScroll = ({ children }) => {
     rounded: 0,
   })
   const rafId = useRef(null)
+  const isInitialMount = useRef(true)
 
   // Detectar si es un dispositivo móvil o táctil
   useEffect(() => {
@@ -49,6 +50,11 @@ const SmoothScroll = ({ children }) => {
 
     window.addEventListener("resize", handleResize)
 
+    // Asegurar que el scroll esté habilitado
+    document.body.style.overflow = "auto"
+    document.documentElement.style.overflow = "auto"
+    document.body.classList.remove("no-scroll")
+
     return () => {
       window.removeEventListener("resize", handleResize)
       // Limpiar el requestAnimationFrame al desmontar
@@ -59,6 +65,29 @@ const SmoothScroll = ({ children }) => {
       document.body.style.height = ""
     }
   }, [])
+
+  // Efecto para manejar la navegación entre páginas
+  useEffect(() => {
+    // Solo ejecutar después del montaje inicial
+    if (isInitialMount.current) {
+      isInitialMount.current = false
+      return
+    }
+
+    // Restablecer el scroll cuando cambia la ubicación
+    window.scrollTo(0, 0)
+
+    // Asegurar que el scroll esté habilitado
+    document.body.style.overflow = "auto"
+    document.documentElement.style.overflow = "auto"
+    document.body.classList.remove("no-scroll")
+
+    // Actualizar la altura del body
+    if (scrollingContainerRef.current && !isMobile) {
+      const scrollingContainerHeight = scrollingContainerRef.current.getBoundingClientRect().height
+      document.body.style.height = `${scrollingContainerHeight}px`
+    }
+  }, [window.location.pathname, isMobile])
 
   // Función para iniciar el smooth scrolling
   const startSmoothScrolling = () => {
