@@ -6,6 +6,8 @@ import ProjectCard from "../cards/ProjectCard"
 import ScrollReveal from "../ScrollReveal"
 import StaggerReveal from "../StaggerReveal"
 import "../../styles/Projects.css"
+import unii from "../../assets/unii.png"
+import pc from "../../assets/bpcd_logo.png"
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState("all")
@@ -20,40 +22,30 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Sistema de Gestión Clínica",
-      client: "VetCare",
-      description: "Plataforma integral para administración de citas, historias clínicas y facturación.",
-      image: "/placeholder.svg?height=300&width=500",
-      category: "web",
+      title: "UniiMarket",
+      // client: "VetCare",
+      description: "Plataforma web de delivery para comunidades educativas, que conecta a estudiantes, docentes y personal para comprar y vender productos fácilmente.",
+      image: unii,
+      categories: ["web"],
     },
     {
       id: 2,
-      title: "E-commerce Personalizado",
-      client: "FashionStore",
-      description: "Tienda online con catálogo dinámico, pasarela de pagos y gestión de inventario.",
-      image: "/placeholder.svg?height=300&width=500",
-      category: "web",
-    },
-    {
-      id: 3,
-      title: "Asistente Virtual con IA",
-      client: "TechSolutions",
-      description: "Chatbot inteligente para atención al cliente y resolución de consultas frecuentes.",
-      image: "/placeholder.svg?height=300&width=500",
-      category: "ai",
-    },
-    {
-      id: 4,
-      title: "App de Gestión de Gimnasio",
-      client: "FitLife",
-      description: "Aplicación móvil para gestión de membresías, clases y rutinas personalizadas.",
-      image: "/placeholder.svg?height=300&width=500",
-      category: "app",
+      title: "BestPCDeals",
+      //client: "FashionStore",
+      description: "Plataforma inteligente para armar tu PC ideal y encontrar las mejores ofertas reales en componentes.",
+      image: pc,
+      categories: ["web", "ai"],
     },
   ]
 
   const filteredProjects =
-    activeCategory === "all" ? projects : projects.filter((project) => project.category === activeCategory)
+  activeCategory === "all"
+    ? projects
+    : projects.filter(
+        (project) =>
+          Array.isArray(project.categories) &&
+          project.categories.includes(activeCategory)
+      )
 
   // Función para manejar la navegación suave sin cambiar la URL
   const handleNavClick = (e, sectionId) => {
@@ -76,8 +68,8 @@ const Projects = () => {
       <div className="container">
         <ScrollReveal>
           <div className="section-header">
-            <h2 className="section-title">Lo que hemos creado</h2>
-            <p className="section-subtitle">Conoce algunos de nuestros proyectos más solicitados</p>
+            <h2 className="section-title">Proyectos en puerta</h2>
+            <p className="section-subtitle">Conoce algunos de los proyectos en los estamos trabajando</p>
           </div>
         </ScrollReveal>
 

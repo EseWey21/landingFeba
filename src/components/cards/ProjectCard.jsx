@@ -52,7 +52,7 @@ const ProjectCard = ({ project }) => {
       </div>
       <div className="project-content">
         <h3 className="project-title">{title}</h3>
-        <p className="project-client">Cliente: {client}</p>
+        {/* <p className="project-client">Cliente: {client}</p> */}
         <p className="project-description">{description}</p>
         <motion.a
           href="#proyectos"
