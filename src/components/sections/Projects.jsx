@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { Hammer } from "lucide-react"
 import ProjectCard from "../cards/ProjectCard"
 import ScrollReveal from "../ScrollReveal"
 import StaggerReveal from "../StaggerReveal"
@@ -39,9 +40,9 @@ const Projects = () => {
   ]
 
   const filteredProjects =
-  activeCategory === "all"
-    ? projects
-    : projects.filter(
+    activeCategory === "all"
+      ? projects
+      : projects.filter(
         (project) =>
           Array.isArray(project.categories) &&
           project.categories.includes(activeCategory)
@@ -105,11 +106,37 @@ const Projects = () => {
               className="projects-grid"
             >
               <StaggerReveal staggerDelay={100}>
-                {filteredProjects.map((project) => (
-                  <div key={project.id} className="stagger-item">
-                    <ProjectCard project={project} />
-                  </div>
-                ))}
+                {filteredProjects.length === 0 ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.5 }}
+                    className="no-projects-card"
+                  >
+                    <div className="no-projects-content">
+                      <motion.div
+                        className="icon-wrapper"
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        <Hammer size={48} strokeWidth={1.5} />
+                      </motion.div>
+                      <h4>
+                        {activeCategory === "app"
+                          ? "Próximamente trabajaremos en apps móviles"
+                          : "Sin proyectos por el momento"}
+                      </h4>
+                      <p>Estamos preparando algo increíble. ¡Vuelve pronto!</p>
+                    </div>
+                  </motion.div>
+                ) : (
+                  filteredProjects.map((project) => (
+                    <div key={project.id} className="stagger-item">
+                      <ProjectCard project={project} />
+                    </div>
+                  ))
+                )}
               </StaggerReveal>
             </motion.div>
           </AnimatePresence>
@@ -127,7 +154,7 @@ const Projects = () => {
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              Ver más proyectos
+              Haz realidad tu proyecto
             </motion.a>
           </div>
         </ScrollReveal>

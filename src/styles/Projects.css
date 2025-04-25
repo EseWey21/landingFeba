@@ -80,3 +80,44 @@
   color: var(--navy);
   opacity: 0.8;
 }
+
+.no-projects-message {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 1.2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.no-projects-card {
+  width: 100%;
+  padding: 3rem;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  background: rgba(240, 240, 240, 0.5);
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.no-projects-content h4 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.no-projects-content p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.icon-wrapper {
+  margin-bottom: 1rem;
+  color: #1976d2; /* Azul suave */
+  display: flex;
+  justify-content: center;
+}
+
+
