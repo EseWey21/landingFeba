@@ -10,10 +10,12 @@ function App() {
   return (
     <Router>
       <SmoothScroll>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="app-container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </SmoothScroll>
     </Router>
   )

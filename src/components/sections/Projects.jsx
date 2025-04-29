@@ -1,68 +1,71 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Hammer } from "lucide-react"
-import ProjectCard from "../cards/ProjectCard"
-import ScrollReveal from "../ScrollReveal"
-import StaggerReveal from "../StaggerReveal"
-import "../../styles/Projects.css"
-import unii from "../../assets/unii.png"
-import pc from "../../assets/bpcd_logo.png"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Hammer } from "lucide-react";
+import ProjectCard from "../cards/ProjectCard";
+import ScrollReveal from "../ScrollReveal";
+import StaggerReveal from "../StaggerReveal";
+import "../../styles/Projects.css";
+import unii from "../../assets/unii.png";
+import pc from "../../assets/bpcd_logo.png";
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState("all")
+  const [activeCategory, setActiveCategory] = useState("all");
 
   const categories = [
     { id: "all", name: "Todos" },
     { id: "web", name: "Web" },
     { id: "app", name: "Apps" },
     { id: "ai", name: "IA" },
-  ]
+  ];
 
   const projects = [
     {
       id: 1,
       title: "UniiMarket",
-      // client: "VetCare",
-      description: "Plataforma web de delivery para comunidades educativas, que conecta a estudiantes, docentes y personal para comprar y vender productos fácilmente.",
+      description:
+        "Plataforma web de delivery para comunidades educativas, que conecta a estudiantes, docentes y personal para comprar y vender productos fácilmente.",
       image: unii,
       categories: ["web"],
+      link: "https://uniimarket.febacode.com",
     },
     {
       id: 2,
       title: "BestPCDeals",
-      //client: "FashionStore",
-      description: "Plataforma inteligente para armar tu PC ideal y encontrar las mejores ofertas reales en componentes.",
+      description:
+        "Plataforma inteligente para armar tu PC ideal y encontrar las mejores ofertas reales en componentes.",
       image: pc,
       categories: ["web", "ai"],
+      link: "https://bestpcdeals.febacode.com",
     },
-  ]
+  ];
 
   const filteredProjects =
     activeCategory === "all"
       ? projects
       : projects.filter(
-        (project) =>
-          Array.isArray(project.categories) &&
-          project.categories.includes(activeCategory)
-      )
+          (project) =>
+            Array.isArray(project.categories) &&
+            project.categories.includes(activeCategory)
+        );
 
   // Función para manejar la navegación suave sin cambiar la URL
   const handleNavClick = (e, sectionId) => {
-    e.preventDefault()
-    const section = document.getElementById(sectionId)
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
     if (section) {
       // Calcular la posición de la sección
-      const sectionPosition = section.getBoundingClientRect().top + window.scrollY
+      const sectionPosition =
+        section.getBoundingClientRect().top + window.scrollY;
 
       // Scroll suave a la sección
       window.scrollTo({
         top: sectionPosition,
         behavior: "smooth",
-      })
+      });
     }
-  }
+  };
 
   return (
     <section id="proyectos" className="projects section">
@@ -70,7 +73,9 @@ const Projects = () => {
         <ScrollReveal>
           <div className="section-header">
             <h2 className="section-title">Proyectos en puerta</h2>
-            <p className="section-subtitle">Conoce algunos de los proyectos en los estamos trabajando</p>
+            <p className="section-subtitle">
+              Conoce algunos de los proyectos en los estamos trabajando
+            </p>
           </div>
         </ScrollReveal>
 
@@ -79,7 +84,9 @@ const Projects = () => {
             {categories.map((category) => (
               <button
                 key={category.id}
-                className={`filter-btn ${activeCategory === category.id ? "active" : ""}`}
+                className={`filter-btn ${
+                  activeCategory === category.id ? "active" : ""
+                }`}
                 onClick={() => setActiveCategory(category.id)}
               >
                 {category.name}
@@ -160,7 +167,7 @@ const Projects = () => {
         </ScrollReveal>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;

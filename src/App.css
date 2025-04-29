@@ -1,8 +1,16 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
+  overflow-x: hidden;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .logo {
@@ -39,4 +47,11 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Fix for mobile view */
+@media (max-width: 768px) {
+  #root {
+    padding: 0;
+  }
 }

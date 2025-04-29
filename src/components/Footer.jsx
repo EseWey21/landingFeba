@@ -1,29 +1,39 @@
-"use client"
+"use client";
 
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
-import { motion } from "framer-motion"
-import Logo from "./Logo"
-import "../styles/Footer.css"
-import febaLogo from "../assets/feba_completo_blanco.png"
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import Logo from "./Logo";
+import "../styles/Footer.css";
+import febaLogo from "../assets/feba_completo_blanco.png";
+import { SiTiktok } from "react-icons/si";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   // Función para manejar la navegación suave sin cambiar la URL
   const handleNavClick = (e, sectionId) => {
-    e.preventDefault()
-    const section = document.getElementById(sectionId)
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
     if (section) {
       // Calcular la posición de la sección
-      const sectionPosition = section.getBoundingClientRect().top + window.scrollY
+      const sectionPosition =
+        section.getBoundingClientRect().top + window.scrollY;
 
       // Scroll suave a la sección
       window.scrollTo({
         top: sectionPosition,
         behavior: "smooth",
-      })
+      });
     }
-  }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -34,7 +44,7 @@ const Footer = () => {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -47,7 +57,7 @@ const Footer = () => {
         damping: 20,
       },
     },
-  }
+  };
 
   const socialVariants = {
     hidden: { opacity: 0, scale: 0 },
@@ -69,7 +79,7 @@ const Footer = () => {
         damping: 10,
       },
     },
-  }
+  };
 
   return (
     <footer className="footer">
@@ -90,20 +100,53 @@ const Footer = () => {
             <Logo />
             <p className="footer-tagline">Soluciones que conectan.</p>
             <div className="footer-social">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <motion.a
-                  key={i}
-                  href={`https://${["facebook", "twitter", "instagram", "linkedin"][i]}.com`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={["Facebook", "Twitter", "Instagram", "LinkedIn"][i]}
-                  custom={i}
-                  variants={socialVariants}
-                  whileHover="hover"
-                >
-                  <Icon size={20} />
-                </motion.a>
-              ))}
+              <motion.a
+                href="https://www.facebook.com/febacode"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                variants={socialVariants}
+                whileHover="hover"
+                custom={0}
+              >
+                <Facebook size={20} />
+              </motion.a>
+
+              <motion.a
+                href="https://www.tiktok.com/@febacode"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                variants={socialVariants}
+                whileHover="hover"
+                custom={1}
+              >
+                <SiTiktok size={20} />
+              </motion.a>
+
+              <motion.a
+                href="https://www.instagram.com/febacode/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                variants={socialVariants}
+                whileHover="hover"
+                custom={2}
+              >
+                <Instagram size={20} />
+              </motion.a>
+
+              {/* <motion.a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                variants={socialVariants}
+                whileHover="hover"
+                custom={3}
+              >
+                <Linkedin size={20} />
+              </motion.a> */}
             </div>
           </motion.div>
 
@@ -112,27 +155,42 @@ const Footer = () => {
               <h3 className="footer-links-title">Navegación</h3>
               <ul>
                 <li>
-                  <a href="#inicio" onClick={(e) => handleNavClick(e, "inicio")}>
+                  <a
+                    href="#inicio"
+                    onClick={(e) => handleNavClick(e, "inicio")}
+                  >
                     Inicio
                   </a>
                 </li>
                 <li>
-                  <a href="#servicios" onClick={(e) => handleNavClick(e, "servicios")}>
+                  <a
+                    href="#servicios"
+                    onClick={(e) => handleNavClick(e, "servicios")}
+                  >
                     Servicios
                   </a>
                 </li>
                 <li>
-                  <a href="#nosotros" onClick={(e) => handleNavClick(e, "nosotros")}>
+                  <a
+                    href="#nosotros"
+                    onClick={(e) => handleNavClick(e, "nosotros")}
+                  >
                     ¿Por qué elegirnos?
                   </a>
                 </li>
                 <li>
-                  <a href="#proyectos" onClick={(e) => handleNavClick(e, "proyectos")}>
+                  <a
+                    href="#proyectos"
+                    onClick={(e) => handleNavClick(e, "proyectos")}
+                  >
                     Proyectos
                   </a>
                 </li>
                 <li>
-                  <a href="#contacto" onClick={(e) => handleNavClick(e, "contacto")}>
+                  <a
+                    href="#contacto"
+                    onClick={(e) => handleNavClick(e, "contacto")}
+                  >
                     Contacto
                   </a>
                 </li>
@@ -143,22 +201,34 @@ const Footer = () => {
               <h3 className="footer-links-title">Servicios</h3>
               <ul>
                 <li>
-                  <a href="#servicios" onClick={(e) => handleNavClick(e, "servicios")}>
+                  <a
+                    href="#servicios"
+                    onClick={(e) => handleNavClick(e, "servicios")}
+                  >
                     Desarrollo Web
                   </a>
                 </li>
                 <li>
-                  <a href="#servicios" onClick={(e) => handleNavClick(e, "servicios")}>
+                  <a
+                    href="#servicios"
+                    onClick={(e) => handleNavClick(e, "servicios")}
+                  >
                     Sistemas Empresariales
                   </a>
                 </li>
                 <li>
-                  <a href="#servicios" onClick={(e) => handleNavClick(e, "servicios")}>
+                  <a
+                    href="#servicios"
+                    onClick={(e) => handleNavClick(e, "servicios")}
+                  >
                     Plataformas con IA
                   </a>
                 </li>
                 <li>
-                  <a href="#servicios" onClick={(e) => handleNavClick(e, "servicios")}>
+                  <a
+                    href="#servicios"
+                    onClick={(e) => handleNavClick(e, "servicios")}
+                  >
                     Software a la medida
                   </a>
                 </li>
@@ -193,7 +263,12 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <motion.p className="footer-copyright" variants={itemVariants}>
-            &copy; {currentYear} <img src={febaLogo || "/placeholder.svg"} alt="Feba Code" className="footer-logo" />{" "}
+            &copy; {currentYear}{" "}
+            <img
+              src={febaLogo || "/placeholder.svg"}
+              alt="Feba Code"
+              className="footer-logo"
+            />{" "}
             Todos los derechos reservados.
           </motion.p>
           <motion.div className="footer-legal" variants={itemVariants}>
@@ -207,7 +282,7 @@ const Footer = () => {
         </motion.div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

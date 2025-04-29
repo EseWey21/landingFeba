@@ -182,7 +182,6 @@
 
 .navbar.scrolled .menu-icon-container {
   background-color: rgba(0, 191, 216, 0.1);
-  
 }
 
 .mobile-menu-header {
@@ -204,6 +203,31 @@
   color: var(--navy);
   cursor: pointer;
 }
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-logo {
+  flex: 1; /* Ocupa todo el espacio posible */
+}
+
+.mobile-close-btn {
+  margin-left: auto; /* Empuja al borde derecho */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--navy);
+  cursor: pointer;
+}
+
 
 @media (max-width: 992px) {
   .navbar-toggle {
@@ -257,5 +281,41 @@
 
   .mobile-cta {
     padding: 2rem;
+  }
+
+  /* Improve the menu toggle button visibility */
+  .menu-icon-container {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar.scrolled .menu-icon-container {
+    background-color: rgba(0, 191, 216, 0.15);
+  }
+}
+
+/* Add specific styles for very small screens */
+@media (max-width: 576px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .navbar-logo {
+    padding-left: 0.75rem; /* Added more padding for logo */
+    transform: scale(1.1); /* Make the logo container slightly larger */
+  }
+
+  .menu-icon-container {
+    width: 38px; /* Slightly larger menu icon */
+    height: 38px;
+  }
+}
+
+/* Add specific styles for very small screens */
+@media (max-width: 360px) {
+  .navbar-container {
+    padding: 0 0.75rem;
   }
 }

@@ -119,7 +119,7 @@ const Hero = () => {
       <motion.div className="container hero-container" variants={containerVariants} initial="hidden" animate="visible">
         <div className="hero-content">
           <motion.h1 className="hero-title" variants={itemVariants}>
-            <span className="text-gradient">Transformamos</span> ideas en soluciones digitales que conectan.
+            <span className="text-gradient">Transformamos</span>  ideas en soluciones digitales que conectan.
           </motion.h1>
 
           <motion.p className="hero-subtitle" variants={itemVariants}>
@@ -144,7 +144,7 @@ const Hero = () => {
         <motion.div className="hero-image" variants={imageVariants}>
           <div className="hero-image-container">
             <div className="hero-image-overlay"></div>
-            <img src={codigoImg} alt="Soluciones digitales" />
+            <img src={codigoImg || "/placeholder.svg"} alt="Soluciones digitales" />
           </div>
         </motion.div>
       </motion.div>

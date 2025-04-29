@@ -42,16 +42,40 @@
 
 @media (max-width: 768px) {
   .logo {
-    height: 28px;
+    height: 35px; /* Increased from 28px */
   }
 
   .logo-image {
-    height: 35px;
-    max-width: 140px;
+    height: 45px; /* Increased from 35px */
+    max-width: 160px; /* Increased from 140px */
   }
 
   .mobile-logo {
-    height: 28px;
+    height: 35px; /* Increased from 28px */
     display: none;
+  }
+}
+
+/* Add specific styles for smaller screens */
+@media (max-width: 576px) {
+  .logo {
+    height: 40px; /* Make logo bigger on small screens */
+  }
+
+  .logo-image {
+    height: 40px; /* Make logo image bigger on small screens */
+    max-width: 170px;
+  }
+}
+
+/* Add specific styles for very small screens */
+@media (max-width: 360px) {
+  .logo {
+    height: 38px;
+  }
+
+  .logo-image {
+    height: 48px;
+    max-width: 160px;
   }
 }
