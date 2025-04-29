@@ -54,6 +54,13 @@
   font-size: 1.125rem;
 }
 
+.footer-logo {
+  height: 20px;
+  width: auto;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
 .footer-social {
   display: flex;
   gap: 1rem;

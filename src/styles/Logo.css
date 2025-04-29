@@ -2,6 +2,8 @@
   display: flex;
   align-items: center;
   position: relative;
+  height: 40px;
+  width: auto;
 }
 
 .logo-text {
@@ -22,4 +24,34 @@
   height: 8px;
   border-radius: 50%;
   background: var(--orange);
+}
+
+.logo-image {
+  height: 60px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.mobile-logo {
+  position: relative;
+  height: 40px;
+  width: 140px;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 28px;
+  }
+
+  .logo-image {
+    height: 35px;
+    max-width: 140px;
+  }
+
+  .mobile-logo {
+    height: 28px;
+    display: none;
+  }
 }

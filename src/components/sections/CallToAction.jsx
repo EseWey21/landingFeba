@@ -1,26 +1,27 @@
-"use client"
+"use client";
 
-import { Rocket } from "lucide-react"
-import { motion } from "framer-motion"
-import ScrollReveal from "../ScrollReveal"
-import "../../styles/CallToAction.css"
+import { Rocket } from "lucide-react";
+import { motion } from "framer-motion";
+import ScrollReveal from "../ScrollReveal";
+import "../../styles/CallToAction.css";
 
 const CallToAction = () => {
   // Función para manejar la navegación suave sin cambiar la URL
   const handleNavClick = (e, sectionId) => {
-    e.preventDefault()
-    const section = document.getElementById(sectionId)
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
     if (section) {
       // Calcular la posición de la sección
-      const sectionPosition = section.getBoundingClientRect().top + window.scrollY
+      const sectionPosition =
+        section.getBoundingClientRect().top + window.scrollY;
 
       // Scroll suave a la sección
       window.scrollTo({
         top: sectionPosition,
         behavior: "smooth",
-      })
+      });
     }
-  }
+  };
 
   return (
     <section id="contacto" className="cta section">
@@ -32,12 +33,17 @@ const CallToAction = () => {
       <div className="container">
         <ScrollReveal>
           <div className="cta-content">
-            <h2 className="cta-title">¿Listo para llevar tu idea al siguiente nivel?</h2>
-            <p className="cta-subtitle">Contáctanos hoy mismo y comencemos a trabajar en tu proyecto</p>
+            <h2 className="cta-title">
+              ¿Listo para llevar tu idea al siguiente nivel?
+            </h2>
+            <p className="cta-subtitle">
+              Contáctanos hoy mismo y comencemos a trabajar en tu proyecto
+            </p>
 
             <motion.a
-              href="#contacto"
-              onClick={(e) => handleNavClick(e, "contacto")}
+              href="https://wa.me/525644129078?text=Hola,%20deseo%20cotizar%20un%20desarrollo%20de%20software"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-cta"
               whileHover={{
                 scale: 1.05,
@@ -91,7 +97,7 @@ const CallToAction = () => {
         </ScrollReveal>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default CallToAction
+export default CallToAction;

@@ -140,6 +140,9 @@ const Navbar = () => {
     },
   }
 
+  // Siempre usar el logo de color en el menú móvil
+  //const mobileLogoScrolled = true
+
   return (
     <motion.nav
       className={`navbar ${scrolled ? "scrolled" : ""} ${visible ? "" : "hidden"}`}
@@ -147,10 +150,10 @@ const Navbar = () => {
       animate="visible"
       variants={navVariants}
     >
-      <div className="container navbar-container">
+      <div className="container navbar-container mobile-padding">
         <motion.div className="navbar-logo" variants={itemVariants}>
           <a href="#inicio" onClick={(e) => handleNavClick(e, "inicio")}>
-            <Logo />
+            <Logo scrolled={scrolled || isOpen} />
           </a>
         </motion.div>
 
@@ -175,12 +178,17 @@ const Navbar = () => {
               </motion.li>
             ))}
           </ul>
-          <motion.div className="navbar-cta" variants={itemVariants}>
-          </motion.div>
+          <motion.div className="navbar-cta" variants={itemVariants}></motion.div>
         </motion.div>
 
-        <motion.div className="navbar-toggle" onClick={() => setIsOpen(!isOpen)} variants={itemVariants}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        <motion.div
+          className="navbar-toggle"
+          onClick={() => setIsOpen(!isOpen)}
+          variants={itemVariants}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <div className="menu-icon-container">{isOpen ? <X size={24} /> : <Menu size={24} />}</div>
         </motion.div>
 
         <AnimatePresence>
@@ -192,6 +200,20 @@ const Navbar = () => {
               exit="exit"
               variants={mobileMenuVariants}
             >
+              <div className="mobile-menu-header">
+                {/* Siempre usamos el logo de color en el menú móvil */}
+                <div className="mobile-logo">
+                  <Logo scrolled={true} />
+                </div>
+                <motion.div
+                  className="mobile-close-btn"
+                  onClick={() => setIsOpen(false)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <X size={24} />
+                </motion.div>
+              </div>
               <div className="mobile-menu-content">
                 <ul className="mobile-links">
                   {["inicio", "servicios", "nosotros", "proyectos", "contacto"].map((section, index) => (

@@ -4,6 +4,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "luc
 import { motion } from "framer-motion"
 import Logo from "./Logo"
 import "../styles/Footer.css"
+import febaLogo from "../assets/feba_completo_blanco.png"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -169,11 +170,11 @@ const Footer = () => {
               <ul className="footer-contact">
                 <li>
                   <Mail size={16} />
-                  <a href="mailto:info@febacode.com">info@febacode.com</a>
+                  <a href="mailto:info@febacode.com">contacto@febacode.com</a>
                 </li>
                 <li>
                   <Phone size={16} />
-                  <a href="tel:+525512345678">+52 55 1234 5678</a>
+                  <a href="tel:+525512345678">+52 56 4412 9078</a>
                 </li>
                 <li>
                   <MapPin size={16} />
@@ -192,7 +193,8 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <motion.p className="footer-copyright" variants={itemVariants}>
-            &copy; {currentYear} Feba Code. Todos los derechos reservados.
+            &copy; {currentYear} <img src={febaLogo || "/placeholder.svg"} alt="Feba Code" className="footer-logo" />{" "}
+            Todos los derechos reservados.
           </motion.p>
           <motion.div className="footer-legal" variants={itemVariants}>
             <a href="#privacidad" onClick={(e) => e.preventDefault()}>

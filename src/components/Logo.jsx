@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion"
 import "../styles/Logo.css"
+import febaLogoBlanco from "../assets/feba_completo_blanco.png"
+import febaLogo from "../assets/feba_completo.png"
 
-const Logo = () => {
+const Logo = ({ scrolled = false }) => {
   return (
     <motion.div
       className="logo"
@@ -15,28 +17,7 @@ const Logo = () => {
         damping: 20,
       }}
     >
-      <span className="logo-text">
-        Feba
-        <motion.span
-          className="logo-highlight"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Code
-        </motion.span>
-      </span>
-      <motion.span
-        className="logo-dot"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{
-          delay: 0.5,
-          type: "spring",
-          stiffness: 400,
-          damping: 10,
-        }}
-      />
+      <img src={scrolled ? febaLogo : febaLogoBlanco} alt="Feba Code" className="logo-image" />
     </motion.div>
   )
 }
