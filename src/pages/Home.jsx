@@ -54,7 +54,7 @@ const Home = () => {
       <Projects />
       {/* <Testimonials /> */}
       <CallToAction />
-      <Footer />
+      
     </div>
   )
 }

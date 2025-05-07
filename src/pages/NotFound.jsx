@@ -301,7 +301,7 @@ const NotFound = () => {
         </motion.div>
       </main>
 
-      <Footer />
+     
     </div>
   )
 }
