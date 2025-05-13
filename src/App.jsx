@@ -2,14 +2,14 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
 import "./App.css"
-import SmoothScroll from "./components/SmoothScroll"
+//import SmoothScroll from "./components/SmoothScroll"
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage"
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage"
 import Footer from "./components/Footer"
 
 function App() {
   return (
-    <SmoothScroll>
+    
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -19,7 +19,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
-    </SmoothScroll>
+    
   )
 }
 
