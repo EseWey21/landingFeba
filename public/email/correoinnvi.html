@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feba Code - Propuesta de mejora para Innvictus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --azul-marino: #1A1F36;
+      --aqua: #00BFD8;
+      --naranja: #F65F4C;
+      --blanco: #FFFFFF;
+      --gris-claro: #D9D9D9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      color: var(--azul-marino);
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      background-color: var(--blanco);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      margin: 40px auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--gris-claro);
+    }
+
+    .logo {
+      max-width: 220px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: var(--azul-marino);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--naranja) 0%, var(--aqua) 100%);
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    a {
+      color: var(--aqua);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--naranja);
+    }
+
+    .error-list {
+      background-color: rgba(26, 31, 54, 0.03);
+      border-left: 3px solid var(--naranja);
+      padding: 20px 25px;
+      border-radius: 0 8px 8px 0;
+      margin: 25px 0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    li::marker {
+      color: var(--naranja);
+    }
+
+    .highlight {
+      color: var(--azul-marino);
+      font-weight: 500;
+    }
+
+    .contacto {
+      margin-top: 30px;
+      background-color: rgba(0, 191, 216, 0.05);
+      padding: 25px;
+      border-radius: 8px;
+    }
+
+    .contacto-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--azul-marino);
+      margin-bottom: 15px;
+    }
+
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .contacto-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .contacto-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contacto-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .contacto-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contacto-label {
+      font-weight: 600;
+      margin-bottom: 3px;
+      color: var(--azul-marino);
+    }
+
+    .contacto-value {
+      color: var(--azul-marino);
+      word-break: break-word;
+    }
+
+    .contacto-value a {
+      color: var(--aqua);
+    }
+
+    .firma {
+      margin-top: 40px;
+      font-weight: 600;
+      color: var(--azul-marino);
+    }
+
+    .footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 13px;
+      color: #888;
+      padding-top: 20px;
+      border-top: 1px solid var(--gris-claro);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 15px 0;
+    }
+
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+    }
+
+    .social-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 20px;
+        margin: 20px;
+        width: auto;
+      }
+
+      .contacto-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 992px) and (min-width: 769px) {
+      .contacto-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/feba_completo-gyvHQS8qhyaA6xkVOIUh6SXmUDS8cc.png"
+        alt="Feba Code" class="logo">
+    </div>
+
+    <h1>Errores detectados en su sitio web – Propuesta de mejora</h1>
+
+    <!-- Imagen destacada -->
+    <p>Estimado equipo de <span class="highlight">Innvictus</span>:</p>
+
+    <p>Somos el equipo de <span class="highlight">Feba Code</span>, un grupo de desarrolladores especializados en crear
+      plataformas web funcionales, rápidas y centradas en la experiencia del usuario.</p>
+
+    <p>Al navegar por su sitio web <a href="https://www.innvictus.com" target="_blank">https://www.innvictus.com</a>,
+      notamos una serie de errores que podrían estar afectando directamente la experiencia de compra de sus clientes y,
+      por consiguiente, sus ventas.</p>
+
+    <div class="error-list">
+      <ul>
+        <li>Imágenes con <span class="highlight">desbordamiento visual</span>, principalmente en banners.</li>
+        <li><span class="highlight">Botones de talla</span> que no se despliegan correctamente.</li>
+        <li>Imposibilidad de <span class="highlight">seleccionar sucursal</span> para recoger productos.</li>
+        <li>En versión <span class="highlight">escritorio</span>, no es posible agregar productos al carrito.</li>
+        <li>En versión <span class="highlight">móvil</span>, el botón de agregar al carrito solo funciona
+          ocasionalmente.</li>
+        <li>Aun llenando el carrito, el <span class="highlight">pago rara vez se completa</span> con éxito.</li>
+        <li>La sección <span class="highlight">perfil de usuario</span> presenta errores visuales y botones poco
+          responsivos.</li>
+      </ul>
+    </div>
+
+    <p>Esta situación puede estar generando frustración en sus usuarios y pérdida significativa de ventas. En <span
+        class="highlight">Feba Code</span>, creemos que una marca con la presencia e identidad de <span
+        class="highlight">Innvictus</span> merece una plataforma digital a la altura de su reputación.</p>
+
+    <p>Nuestro equipo de expertos puede ayudarle a resolver estos problemas técnicos y optimizar su plataforma para
+      maximizar conversiones y mejorar la experiencia de usuario.</p>
+
+    <div class="contacto">
+      <div class="contacto-title">¿Cómo podemos ayudarle?</div>
+      <p>Si desean conocer más sobre cómo podemos ayudarles a optimizar su sitio web y mejorar la experiencia de sus
+        clientes, pueden contactarnos directamente:</p>
+
+      <div class="contacto-grid">
+        <div class="contacto-item">
+          <div class="contacto-icon">
+            <img src="https://febacode.com/logos/email.png" alt="Correo">
+          </div>
+          <div class="contacto-text">
+            <div class="contacto-label">Correo:</div>
+            <div class="contacto-value">contacto@febacode.com</div>
+          </div>
+        </div>
+
+        <div class="contacto-item">
+          <div class="contacto-icon">
+            <img src="https://febacode.com/logos/whatsapp.png" alt="WhatsApp">
+          </div>
+          <div class="contacto-text">
+            <div class="contacto-label">WhatsApp:</div>
+            <div class="contacto-value">
+              <a href="https://wa.me/525644129078" target="_blank">56 4412 9078</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="contacto-item">
+          <div class="contacto-icon">
+            <img src="https://febacode.com/logos/sitio-web.png" alt="Sitio web">
+          </div>
+          <div class="contacto-text">
+            <div class="contacto-label">Sitio web:</div>
+            <div class="contacto-value">
+              <a href="https://www.febacode.com" target="_blank">www.febacode.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contacto-item">
+          <div class="contacto-icon">
+            <img src="https://febacode.com/logos/social.png" alt="Instagram">
+          </div>
+          <div class="contacto-text">
+            <div class="contacto-label">Instagram:</div>
+            <div class="contacto-value">
+              <a href="https://www.instagram.com/febacode/" target="_blank">@febacode</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contacto-item">
+          <div class="contacto-icon">
+            <img src="https://febacode.com/logos/facebook.png" alt="Facebook">
+          </div>
+          <div class="contacto-text">
+            <div class="contacto-label">Facebook:</div>
+            <div class="contacto-value">
+              <a href="https://www.facebook.com/febacode/" target="_blank">FEBA Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contacto-item">
+          <div class="contacto-icon">
+            <img src="https://febacode.com/logos/tiktok.png" alt="TikTok">
+          </div>
+          <div class="contacto-text">
+            <div class="contacto-label">TikTok:</div>
+            <div class="contacto-value">
+              <a href="https://www.tiktok.com/@febacode" target="_blank">@febacode</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="firma">Atentamente,<br>Equipo Feba Code</p>
+
+    <div class="footer">
+      <div class="social-links">
+        <a href="https://www.instagram.com/febacode/" target="_blank" class="social-icon">
+          <img src="https://febacode.com/logos/social.png" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com/febacode/" target="_blank" class="social-icon">
+          <img src="https://febacode.com/logos/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.tiktok.com/@febacode" target="_blank" class="social-icon">
+          <img src="https://febacode.com/logos/tiktok.png" alt="TikTok">
+        </a>
+      </div>
+      <p>© 2025 Feba Code. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</body>
+
+</html>
