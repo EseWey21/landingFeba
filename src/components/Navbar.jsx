@@ -162,7 +162,7 @@ const Navbar = () => {
 
         <motion.div className="navbar-menu desktop-menu" variants={navVariants}>
           <ul className="navbar-links">
-            {["inicio", "servicios", "nosotros", "proyectos", "contacto"].map(
+            {["inicio", "servicios", "nosotros", "contacto"].map(
               (section, index) => (
                 <motion.li key={section} variants={itemVariants}>
                   <a
