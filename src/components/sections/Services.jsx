@@ -1,6 +1,6 @@
 "use client"
 
-import { Monitor, Building2, BrainCircuit, PuzzleIcon as PuzzlePiece } from "lucide-react"
+import { Monitor, Building2, BrainCircuit } from "lucide-react"
 import ServiceCard from "../cards/ServiceCard"
 import StaggerReveal from "../StaggerReveal"
 import ScrollReveal from "../ScrollReveal"
@@ -13,24 +13,21 @@ const Services = () => {
       icon: <Monitor size={48} />,
       title: "Desarrollo Web",
       description: "Sitios, landings, eCommerce y sistemas administrativos adaptados a tus necesidades.",
+      route: "/desarrollo-web",
     },
     {
       id: 2,
       icon: <Building2 size={48} />,
       title: "Sistemas Empresariales",
       description: "Control de ingresos, inventarios, CRM y agendamientos para optimizar tus procesos.",
+      route: "/sistemas-empresariales",
     },
     {
       id: 3,
       icon: <BrainCircuit size={48} />,
       title: "Plataformas con IA",
       description: "Asistentes inteligentes, comparadores y cazadores de precios con tecnología avanzada.",
-    },
-    {
-      id: 4,
-      icon: <PuzzlePiece size={48} />,
-      title: "Software a la medida",
-      description: "Soluciones personalizadas para negocios locales.",
+      route: "/plataformas-ia",
     },
   ]
 

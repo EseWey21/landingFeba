@@ -1,98 +1,131 @@
-"use client";
+"use client"
 
-import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import Logo from "./Logo";
-import "../styles/Navbar.css";
+import { useState, useEffect, useRef } from "react"
+import { useNavigate, useLocation } from "react-router-dom" // Agregando hooks de React Router
+import { Menu, X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import Logo from "./Logo"
+import "../styles/Navbar.css"
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const [activeSection, setActiveSection] = useState("inicio");
-  const lastScrollY = useRef(0);
-  const ticking = useRef(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [visible, setVisible] = useState(true)
+  const [activeSection, setActiveSection] = useState("inicio")
+  const lastScrollY = useRef(0)
+  const ticking = useRef(false)
 
-  // Función para manejar la navegación suave sin cambiar la URL
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const handleNavClick = (e, sectionId) => {
-    e.preventDefault();
-    const section = document.getElementById(sectionId);
-    if (section) {
-      // Cerrar el menú móvil si está abierto
-      if (isOpen) setIsOpen(false);
+    e.preventDefault()
 
-      // Calcular la posición de la sección
-      const sectionPosition =
-        section.getBoundingClientRect().top + window.scrollY;
+    // Cerrar el menú móvil si está abierto
+    if (isOpen) setIsOpen(false)
 
-      // Scroll suave a la sección
-      window.scrollTo({
-        top: sectionPosition,
-        behavior: "smooth",
-      });
+    // Si estamos en la página principal, usar navegación suave
+    if (location.pathname === "/") {
+      const section = document.getElementById(sectionId)
+      if (section) {
+        const sectionPosition = section.getBoundingClientRect().top + window.scrollY
+        window.scrollTo({
+          top: sectionPosition,
+          behavior: "smooth",
+        })
+      }
+    } else {
+      // Si estamos en otra ruta, navegar a la página principal con la sección
+      navigate("/", { replace: true })
+      // Usar setTimeout para asegurar que la página se cargue antes del scroll
+      setTimeout(() => {
+        const section = document.getElementById(sectionId)
+        if (section) {
+          const sectionPosition = section.getBoundingClientRect().top + window.scrollY
+          window.scrollTo({
+            top: sectionPosition,
+            behavior: "smooth",
+          })
+        }
+      }, 100)
     }
-  };
+  }
+
+  const handleLogoClick = (e) => {
+    e.preventDefault()
+    if (location.pathname === "/") {
+      // Si estamos en la página principal, ir al inicio
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      })
+    } else {
+      // Si estamos en otra ruta, navegar a la página principal
+      navigate("/", { replace: true })
+    }
+    if (isOpen) setIsOpen(false)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      const currentScrollY = window.scrollY
 
       if (!ticking.current) {
         window.requestAnimationFrame(() => {
           // Determinar si el navbar debe ser visible basado en la dirección del scroll
           if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
             // Scrolling down & past threshold - hide navbar
-            setVisible(false);
+            setVisible(false)
           } else {
             // Scrolling up or at top - show navbar
-            setVisible(true);
+            setVisible(true)
           }
 
           // Actualizar el estado de scroll para el fondo
-          setScrolled(currentScrollY > 50);
+          setScrolled(currentScrollY > 50)
 
-          // Actualizar la sección activa
-          updateActiveSection(currentScrollY);
+          if (location.pathname === "/") {
+            updateActiveSection(currentScrollY)
+          }
 
-          lastScrollY.current = currentScrollY;
-          ticking.current = false;
-        });
+          lastScrollY.current = currentScrollY
+          ticking.current = false
+        })
 
-        ticking.current = true;
+        ticking.current = true
       }
-    };
+    }
 
     const updateActiveSection = (scrollPos) => {
-      const sections = document.querySelectorAll("section[id]");
+      const sections = document.querySelectorAll("section[id]")
 
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute("id");
+        const sectionTop = section.offsetTop - 100
+        const sectionHeight = section.offsetHeight
+        const sectionId = section.getAttribute("id")
 
         if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-          setActiveSection(sectionId);
+          setActiveSection(sectionId)
         }
-      });
-    };
+      })
+    }
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [location.pathname]) // Agregando location.pathname como dependencia
 
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.classList.add("no-scroll");
+      document.body.classList.add("no-scroll")
     } else {
-      document.body.classList.remove("no-scroll");
+      document.body.classList.remove("no-scroll")
     }
 
     return () => {
-      document.body.classList.remove("no-scroll");
-    };
-  }, [isOpen]);
+      document.body.classList.remove("no-scroll")
+    }
+  }, [isOpen])
 
   const navVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -105,7 +138,7 @@ const Navbar = () => {
         delayChildren: 0.2,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -118,7 +151,7 @@ const Navbar = () => {
         damping: 20,
       },
     },
-  };
+  }
 
   const mobileMenuVariants = {
     hidden: { opacity: 0, x: "100%" },
@@ -139,39 +172,37 @@ const Navbar = () => {
         duration: 0.3,
       },
     },
-  };
+  }
 
   // Siempre usar el logo de color en el menú móvil
   //const mobileLogoScrolled = true
 
   return (
     <motion.nav
-      className={`navbar ${scrolled ? "scrolled" : ""} ${
-        visible ? "" : "hidden"
-      }`}
+      className={`navbar ${scrolled ? "scrolled" : ""} ${visible ? "" : "hidden"}`}
       initial="hidden"
       animate="visible"
       variants={navVariants}
     >
       <div className="container navbar-container mobile-padding">
         <motion.div className="navbar-logo" variants={itemVariants}>
-          <a href="#inicio" onClick={(e) => handleNavClick(e, "inicio")}>
+          <a href="#inicio" onClick={handleLogoClick}>
             <Logo scrolled={scrolled || isOpen} />
           </a>
         </motion.div>
 
         <motion.div className="navbar-menu desktop-menu" variants={navVariants}>
           <ul className="navbar-links">
-            {["inicio", "servicios", "nosotros", "contacto"].map(
-              (section, index) => (
-                <motion.li key={section} variants={itemVariants}>
-                  <a
-                    href={`#${section}`}
-                    onClick={(e) => handleNavClick(e, section)}
-                    className={activeSection === section ? "active" : ""}
-                  >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
-                    {activeSection === section && (
+            {["inicio", "servicios", "nosotros", "contacto"].map((section, index) => (
+              <motion.li key={section} variants={itemVariants}>
+                <a
+                  href={`#${section}`}
+                  onClick={(e) => handleNavClick(e, section)}
+                  className={activeSection === section && location.pathname === "/" ? "active" : ""} // Solo mostrar activo en página principal
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  {activeSection === section &&
+                    location.pathname === "/" && ( // Solo mostrar indicador en página principal
                       <motion.span
                         className="active-indicator"
                         layoutId="activeIndicator"
@@ -182,15 +213,11 @@ const Navbar = () => {
                         }}
                       />
                     )}
-                  </a>
-                </motion.li>
-              )
-            )}
+                </a>
+              </motion.li>
+            ))}
           </ul>
-          <motion.div
-            className="navbar-cta"
-            variants={itemVariants}
-          ></motion.div>
+          <motion.div className="navbar-cta" variants={itemVariants}></motion.div>
         </motion.div>
 
         {!isOpen && (
@@ -217,8 +244,7 @@ const Navbar = () => {
               variants={mobileMenuVariants}
             >
               <div className="mobile-menu-header">
-                {/* Siempre usamos el logo de color en el menú móvil */}
-                <div className="mobile-logo">
+                <div className="mobile-logo" onClick={handleLogoClick}>
                   <Logo scrolled={true} />
                 </div>
                 <motion.div
@@ -232,13 +258,7 @@ const Navbar = () => {
               </div>
               <div className="mobile-menu-content">
                 <ul className="mobile-links">
-                  {[
-                    "inicio",
-                    "servicios",
-                    "nosotros",
-                    "proyectos",
-                    "contacto",
-                  ].map((section, index) => (
+                  {["inicio", "servicios", "nosotros", "proyectos", "contacto"].map((section, index) => (
                     <motion.li
                       key={section}
                       initial={{ opacity: 0, y: 20 }}
@@ -251,7 +271,7 @@ const Navbar = () => {
                       <a
                         href={`#${section}`}
                         onClick={(e) => handleNavClick(e, section)}
-                        className={activeSection === section ? "active" : ""}
+                        className={activeSection === section && location.pathname === "/" ? "active" : ""} // Solo mostrar activo en página principal
                       >
                         {section.charAt(0).toUpperCase() + section.slice(1)}
                       </a>
@@ -281,7 +301,7 @@ const Navbar = () => {
         </AnimatePresence>
       </div>
     </motion.nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

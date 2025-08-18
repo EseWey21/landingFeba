@@ -1,0 +1,676 @@
+.service-page {
+  min-height: 100vh;
+  background: var(--white);
+}
+
+.service-main {
+  /* Eliminado padding-top para que el degradado llegue hasta arriba */
+  padding-top: 0;
+}
+
+/* Adding new hero with background image styles */
+.service-hero-with-image {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--white);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-description {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hero-cta-button {
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: var(--border-radius-md);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Keeping original hero styles for backward compatibility */
+.service-hero {
+  background: var(--gradient-primary);
+  color: var(--white);
+  /* Eliminando padding-bottom para conectar con la imagen */
+  padding: 8rem 0 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.service-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Eliminado completamente el estilo del back-button */
+/* .back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 2rem;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-5px);
+} */
+
+.service-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.service-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.service-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+  /* Aumentando margen inferior para mejor transición */
+  margin-bottom: 4rem;
+}
+
+/* Nueva sección para imágenes ilustrativas */
+/* Eliminando sección de imagen separada y moviendo imagen directamente después del hero */
+.service-image-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  transition: var(--transition);
+  aspect-ratio: 21 / 9;
+  position: relative;
+  /* Eliminando cualquier separación superior */
+  margin-top: 0;
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: var(--transition);
+}
+
+.service-image:hover {
+  transform: scale(1.02);
+}
+
+/* Actualizando placeholder para mantener consistencia */
+.service-image-placeholder {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background: var(--gray-100);
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-500);
+  font-size: 1.1rem;
+  border: 2px dashed var(--gray-300);
+  aspect-ratio: 21 / 9;
+}
+
+/* Adding hero with background image styles for consistent design across all service pages */
+.service-hero-with-bg {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.service-hero-with-bg .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: 1;
+}
+
+.service-hero-with-bg .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.service-hero-with-bg .service-hero-content {
+  text-align: center;
+  color: var(--white);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.service-hero-with-bg .service-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: var(--white);
+}
+
+.service-hero-with-bg .service-description {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  color: var(--white);
+}
+
+.service-hero-with-bg .hero-cta-button {
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: var(--border-radius-md);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.service-hero-with-bg .hero-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.comparison-section {
+  /* Eliminando padding-top para conectar directamente con la imagen */
+  padding: 0 0 4rem 0;
+  background: var(--gray-50);
+  /* Agregando margen superior para separar de la imagen */
+  margin-top: 3rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--dark);
+}
+
+.comparison-table {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+}
+
+.comparison-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  background: var(--gradient-primary);
+  color: var(--white);
+}
+
+.feature-column {
+  padding: 1.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.package-column {
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.package-column.popular {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--white);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.package-column h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.package-column .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.comparison-body {
+  background: var(--white);
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.comparison-row:last-child {
+  border-bottom: none;
+}
+
+.feature-name {
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  background: var(--gray-50);
+}
+
+.feature-value {
+  padding: 1rem;
+  text-align: center;
+  border-left: 1px solid var(--gray-200);
+  font-size: 0.9rem;
+}
+
+.packages-section {
+  padding: 1rem 0;
+  background: var(--white);
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.package-card {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--gray-200);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.package-card.popular {
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+.package-card.popular::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+}
+
+.package-card .popular-badge {
+  position: absolute;
+  top: -1px;
+  right: 2rem;
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.package-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.package-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.package-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.package-description {
+  color: var(--gray-600);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.package-features h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.package-features h4:first-child {
+  margin-top: 0;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.feature-item.included {
+  color: var(--dark);
+}
+
+.feature-item.included svg {
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+.feature-item.not-included {
+  color: var(--gray-500);
+}
+
+.feature-item.not-included svg {
+  color: var(--gray-400);
+  flex-shrink: 0;
+}
+
+.package-button {
+  width: 100%;
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 2rem;
+}
+
+.package-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.package-card.popular .package-button {
+  background: var(--primary);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+  }
+
+  .service-hero-with-image {
+    min-height: 60vh;
+  }
+
+  .service-hero-with-bg {
+    min-height: 60vh;
+  }
+
+  .service-hero-with-bg .service-title {
+    font-size: 2.8rem;
+  }
+
+  .service-hero-with-bg .service-description {
+    font-size: 1.2rem;
+  }
+
+  .comparison-header,
+  .comparison-row {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-table {
+    display: none;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .package-card.popular {
+    transform: none;
+  }
+
+  .service-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+  }
+
+  .hero-content {
+    padding: 1.5rem;
+  }
+
+  .service-hero-with-image {
+    min-height: 50vh;
+  }
+
+  .service-hero {
+    /* Eliminando padding-bottom en móviles también */
+    padding: 6rem 0 0 0;
+  }
+
+  .service-hero-with-bg {
+    min-height: 50vh;
+  }
+
+  .service-hero-with-bg .service-title {
+    font-size: 2.2rem;
+  }
+
+  .service-hero-with-bg .service-description {
+    font-size: 1.1rem;
+  }
+
+  .service-hero-with-bg .container {
+    padding: 0 1.5rem;
+  }
+
+  .service-title {
+    font-size: 2rem;
+  }
+
+  .service-description {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .package-card {
+    padding: 1.5rem;
+  }
+
+  .comparison-section,
+  .packages-section {
+    padding: 2rem 0;
+  }
+
+  /* Ajustando margen superior de comparación en móviles */
+  .comparison-section {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-cta-button {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .service-hero-with-bg .service-title {
+    font-size: 1.8rem;
+  }
+
+  .service-hero-with-bg .hero-cta-button {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .service-title {
+    font-size: 1.75rem;
+  }
+
+  .package-price {
+    font-size: 2rem;
+  }
+}
