@@ -18,7 +18,7 @@ const PlataformasIA = () => {
     {
       id: 1,
       name: "Escencial",
-      price: "$7,000 – $12,000 MXN",
+      price: "Desde: $12,000 MXN",
       description: "Ideal para empresas que quieren iniciar su transformación digital con IA o automatización básica",
       features: [
         "Asistente inteligente básico (chatbot para sitio web, WhatsApp o Facebook, con respuestas automáticas a preguntas frecuentes y formulario de contacto).",
@@ -32,7 +32,7 @@ const PlataformasIA = () => {
     {
       id: 2,
       name: "Profesional",
-      price: "$16,000 – $25,000 MXN",
+      price: "Desde: $25,000 MXN",
       description: "Para empresas que buscan automatizar procesos y comenzar a explotar sus datos.",
       features: [
         "Asistente inteligente avanzado: chatbot multi-canal, integración con bases de datos o sistemas internos, formularios dinámicos, registro y seguimiento de usuarios.",
@@ -46,7 +46,7 @@ const PlataformasIA = () => {
     {
       id: 3,
       name: "Premium",
-      price: "$35,000 – $60,000 MXN",
+      price: "Desde: $60,000 MXN",
       description: "Para proyectos de innovación, empresas grandes o necesidades específicas de alto impacto.",
       features: [
         "Levantamiento y análisis profundo de requerimientos.",

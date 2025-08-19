@@ -19,13 +19,13 @@ const DesarrolloWeb = () => {
     {
       id: 1,
       name: "Esencial",
-      price: "$3,500 - $5000 MXN",
+      price: "Desde: $3,500 MXN",
       description: "Perfecto para pequeños negocios que necesitan presencia web básica",
       features: [
         "Landing Page",
         "Formulario de Contacto Integrado",
         "Menu Digital con QR",
-        "Diseno Responsivo y adaptado a tu marca",
+        "Diseño Responsivo y adaptado a tu marca",
         "Integracion con Whatsapp",
         "Soporte tecnico por 1  mes",
       ],
@@ -34,7 +34,7 @@ const DesarrolloWeb = () => {
     {
       id: 2,
       name: "Profesional",
-      price: "$6,500 – $8,500 MXN",
+      price: "Desde : $6,500 MXN",
       description: "Ideal para empresas que buscan funcionalidades avanzadas",
       features: [
         "Sitio web de hasta 5 secciones (ej. Inicio, Sobre nosotros, Servicios/Menú, Galería/Portafolio, Contacto)",
@@ -51,7 +51,7 @@ const DesarrolloWeb = () => {
     {
       id: 3,
       name: "Empresarial",
-      price: "13,000 – $18,000 MXN",
+      price: "Desde: 13,000 MXN",
       description: "Solución completa para empresas grandes con necesidades específicas",
       features: [
         "Todo lo del paquete Profesional",

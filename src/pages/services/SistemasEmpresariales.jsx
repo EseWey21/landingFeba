@@ -18,7 +18,7 @@ const SistemasEmpresariales = () => {
     {
       id: 1,
       name: "Esencial",
-      price: "$7,000 – $12,000 MXN",
+      price: "Desde: $7,000 MXN",
       description:
         "Ideal para pequeños negocios y emprendedores que quieren dar sus primeros pasos en la digitalización.",
       features: [
@@ -33,7 +33,7 @@ const SistemasEmpresariales = () => {
     {
       id: 2,
       name: "Profesional",
-      price: "$7,000 – $12,000 MXN",
+      price: "Desde: $12,000 MXN",
       description: "Para negocios en crecimiento que necesitan mayor control y herramientas de gestión.",
       features: [
         "Punto de Venta (POS) avanzado: ventas, caja, arqueos, notas/tickets y gestión de descuentos.",
@@ -49,7 +49,7 @@ const SistemasEmpresariales = () => {
     {
       id: 3,
       name: "Premium",
-      price: "$16,000 – $24,000 MXN",
+      price: "Desde: $24,000 MXN",
       description: "Plataforma completa con IA avanzada y análisis predictivo",
       features: [
         "Punto de Venta (POS) avanzado: ventas, caja, arqueos, notas/tickets y gestión de descuentos.",

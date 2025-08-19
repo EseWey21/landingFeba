@@ -14,9 +14,9 @@ function App() {
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/desarrollo-web" element={<DesarrolloWeb />} />
-          <Route path="/sistemas-empresariales" element={<SistemasEmpresariales />} />
-          <Route path="/plataformas-ia" element={<PlataformasIA />} />
+          <Route path="/desarrolloweb" element={<DesarrolloWeb />} />
+          <Route path="/sistemasempresariales" element={<SistemasEmpresariales />} />
+          <Route path="/plataformasia" element={<PlataformasIA />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
