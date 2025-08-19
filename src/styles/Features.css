@@ -74,6 +74,8 @@
   color: var(--navy);
 }
 
+/* Commented out the ::before pseudo-element that creates blue dots */
+/*
 .features-list li::before {
   content: "";
   position: absolute;
@@ -84,6 +86,7 @@
   border-radius: 50%;
   background-color: var(--turquoise);
 }
+*/
 
 .features-showcase-image {
   position: relative;

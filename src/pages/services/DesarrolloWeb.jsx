@@ -7,7 +7,7 @@ import Navbar from "../../components/Navbar"
 import Footer from "../../components/Footer"
 import "../../styles/ServicePage.css"
 import desarrollo from "../../assets/imagenWeb.png"
-import { image } from "framer-motion/client"
+import progra from "../../assets/progra.jpg"
 
 const DesarrolloWeb = () => {
   useEffect(() => {
@@ -27,9 +27,9 @@ const DesarrolloWeb = () => {
         "Menu Digital con QR",
         "Diseno Responsivo y adaptado a tu marca",
         "Integracion con Whatsapp",
-        "Soporte tecnico por 1  mes"
+        "Soporte tecnico por 1  mes",
       ],
-      notIncluded: ["E-commerce", "Panel administrativo", "Integración con APIs", "Mantenimiento mensual"],
+      notIncluded: ["E-commerce", "Panel administrativo", "Integración con APIs"],
     },
     {
       id: 2,
@@ -45,7 +45,7 @@ const DesarrolloWeb = () => {
         "Integración con redes sociales",
         "Soporte por 3 meses",
       ],
-      notIncluded: ["Integración con APIs externas", "Sistema de inventarios", "Mantenimiento mensual"],
+      notIncluded: ["Integración con APIs externas", "Sistema de inventarios"],
       popular: false,
     },
     {
@@ -88,7 +88,7 @@ const DesarrolloWeb = () => {
         <div className="service-hero-with-image">
           <div className="hero-background">
             <img
-              src={desarrollo}
+              src={progra || "/placeholder.svg"}
               alt="Desarrollo Web - Código de programación"
               className="hero-background-image"
             />
@@ -107,14 +107,6 @@ const DesarrolloWeb = () => {
                 landing pages hasta e-commerce completos, desarrollamos soluciones web que impulsan tu presencia
                 digital.
               </p>
-              <motion.button
-                className="hero-cta-button"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-              >
-                Ver Paquetes
-              </motion.button>
             </motion.div>
           </div>
         </div>
@@ -177,7 +169,17 @@ const DesarrolloWeb = () => {
                     )}
                   </div>
 
-                  <button className="package-button">Solicitar cotización</button>
+                  <button
+                    className="package-button"
+                    onClick={() =>
+                      window.open(
+                        "https://wa.me/525644129078?text=Hola,%20deseo%20cotizar%20un%20desarrollo%20de%20software",
+                        "_blank",
+                      )
+                    }
+                  >
+                    Solicitar cotización
+                  </button>
                 </motion.div>
               ))}
             </div>

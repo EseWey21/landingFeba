@@ -19,7 +19,8 @@ const SistemasEmpresariales = () => {
       id: 1,
       name: "Esencial",
       price: "$7,000 – $12,000 MXN",
-      description: "Ideal para pequeños negocios y emprendedores que quieren dar sus primeros pasos en la digitalización.",
+      description:
+        "Ideal para pequeños negocios y emprendedores que quieren dar sus primeros pasos en la digitalización.",
       features: [
         "Punto de Venta (POS) básico: registro de ventas y caja.",
         "Control de inventario sencillo: altas, bajas, movimientos, alertas de stock bajo.",
@@ -27,7 +28,7 @@ const SistemasEmpresariales = () => {
         "Reportes básicos de ventas e inventario.",
         "Soporte técnico y capacitación inicial.",
       ],
-      notIncluded: ["IA avanzada", "Integración con APIs", "Análisis predictivo", "App móvil"],
+      notIncluded: [ "Integración con APIs", "Análisis predictivo","Automatizacion de procesos"],
     },
     {
       id: 2,
@@ -41,8 +42,8 @@ const SistemasEmpresariales = () => {
         "Módulo de ingresos y egresos: control de flujo de efectivo y gastos.",
         "CRM sencillo: registro de clientes y ventas por cliente.",
         "Sistema de roles y permisos (multiusuario, 5 usuarios).",
-        "Soporte y actualizaciones por 1 año.",      ],
-      notIncluded: ["Análisis predictivo completo", "Integración con Big Data", "App móvil nativa"],
+      ],
+      notIncluded: ["Integración con Big Data", "Automatizacion de procesos","Exportacion a PDF/Excel"],
       popular: false,
     },
     {
@@ -98,7 +99,6 @@ const SistemasEmpresariales = () => {
                 inventarios hasta CRM completos, creamos soluciones que se adaptan a las necesidades específicas de tu
                 empresa.
               </p>
-              <button className="hero-cta-button">Solicitar Cotización</button>
             </motion.div>
           </div>
         </div>
@@ -161,7 +161,17 @@ const SistemasEmpresariales = () => {
                     )}
                   </div>
 
-                  <button className="package-button">Solicitar cotización</button>
+                  <button
+                    className="package-button"
+                    onClick={() =>
+                      window.open(
+                        "https://wa.me/525644129078?text=Hola,%20deseo%20cotizar%20un%20desarrollo%20de%20software",
+                        "_blank",
+                      )
+                    }
+                  >
+                    Solicitar cotización
+                  </button>
                 </motion.div>
               ))}
             </div>

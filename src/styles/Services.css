@@ -24,7 +24,7 @@
   width: 400px;
   height: 400px;
   background-color: var(--turquoise);
-  top: -100px;
+  top: 100px;
   left: -100px;
 }
 

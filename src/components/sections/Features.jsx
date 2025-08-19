@@ -5,9 +5,7 @@ import FeatureCard from "../cards/FeatureCard"
 import ScrollReveal from "../ScrollReveal"
 import StaggerReveal from "../StaggerReveal"
 import "../../styles/Features.css"
-import uxui from "../../assets/uxui.png";
-// import laptop from "../../assets/laptop2.png";
-// import persona from "../../assets/persona.png";
+import organizacion from "../../assets/organizacion.png"
 
 const Features = () => {
   const features = [
@@ -72,7 +70,7 @@ const Features = () => {
             </div>
             <div className="features-showcase-image">
               <div className="features-image-container">
-                <img src={uxui} alt="Experiencia de Usuario" />
+                <img src={organizacion} alt="Experiencia de Usuario" />
               </div>
             </div>
           </div>

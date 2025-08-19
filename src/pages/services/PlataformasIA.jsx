@@ -26,7 +26,7 @@ const PlataformasIA = () => {
         "Integración con múltiples canales",
         "Soporte técnico y capacitación inicial.",
       ],
-      notIncluded: ["Análisis predictivo completo", "Integración con Big Data", "App móvil nativa"],
+      notIncluded: ["Análisis predictivo completo", "Integración con Big Data"],
       popular: false,
     },
     {
@@ -36,12 +36,12 @@ const PlataformasIA = () => {
       description: "Para empresas que buscan automatizar procesos y comenzar a explotar sus datos.",
       features: [
         "Asistente inteligente avanzado: chatbot multi-canal, integración con bases de datos o sistemas internos, formularios dinámicos, registro y seguimiento de usuarios.",
-        "•Scraping inteligente avanzado: extracción estructurada de información de múltiples fuentes, limpieza y clasificación automática, actualización periódica y alertas personalizadas.",
+        "Scraping inteligente avanzado: extracción estructurada de información de múltiples fuentes, limpieza y clasificación automática, actualización periódica y alertas personalizadas.",
         "Panel básico de visualización de datos y reportes.",
         "Integración con email o notificaciones.",
         "Soporte extendido y actualización mensual.",
       ],
-      notIncluded: ["IA avanzada", "Integración con APIs", "Análisis predictivo", "App móvil"],
+      notIncluded: ["IA personalizada", "Integración con APIs","Integracion con App movil"],
     },
     {
       id: 3,
@@ -91,7 +91,6 @@ const PlataformasIA = () => {
                 chatbots avanzados hasta sistemas de análisis predictivo, creamos plataformas que transforman la manera
                 en que tu negocio opera.
               </p>
-              <button className="hero-cta-button">Solicitar Cotización</button>
             </motion.div>
           </div>
         </div>
@@ -154,7 +153,17 @@ const PlataformasIA = () => {
                     )}
                   </div>
 
-                  <button className="package-button">Solicitar cotización</button>
+                  <button
+                    className="package-button"
+                    onClick={() =>
+                      window.open(
+                        "https://wa.me/525644129078?text=Hola,%20deseo%20cotizar%20un%20desarrollo%20de%20software",
+                        "_blank",
+                      )
+                    }
+                  >
+                    Solicitar cotización
+                  </button>
                 </motion.div>
               ))}
             </div>

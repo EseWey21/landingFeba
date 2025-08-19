@@ -388,6 +388,7 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 .package-card {
@@ -399,6 +400,9 @@
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .package-card:hover {
@@ -460,6 +464,12 @@
   font-size: 0.95rem;
 }
 
+.package-features {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .package-features h4 {
   font-size: 1.1rem;
   font-weight: 600;
@@ -476,11 +486,19 @@
   list-style: none;
   padding: 0;
   margin: 0 0 1rem 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.features-list li {
+  /* Ensuring list items have no bullets */
+  list-style: none;
+  list-style-type: none;
 }
 
 .feature-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
   padding: 0.5rem 0;
   font-size: 0.9rem;
@@ -488,12 +506,15 @@
 }
 
 .feature-item.included {
-  color: var(--dark);
+  color: var(--success);
 }
 
 .feature-item.included svg {
-  color: var(--success);
+  color: turquoise;
   flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
 }
 
 .feature-item.not-included {
@@ -501,8 +522,11 @@
 }
 
 .feature-item.not-included svg {
-  color: var(--gray-400);
+  color: rgb(219, 89, 89);
   flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
 }
 
 .package-button {
@@ -516,7 +540,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
-  margin-top: 2rem;
+  margin-top: auto;
+  margin-bottom: 0;
 }
 
 .package-button:hover {
