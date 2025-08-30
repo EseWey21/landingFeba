@@ -134,9 +134,7 @@ const DesarrolloWeb = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 + index * 0.1 }}
-                >
-
-                
+                >                
                   {pkg.popular && <div className="popular-badge">Más Popular</div>}
 
                   <div className="package-header">
