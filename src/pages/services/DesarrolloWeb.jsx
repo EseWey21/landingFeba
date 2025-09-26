@@ -6,7 +6,6 @@ import { motion } from "framer-motion"
 import Navbar from "../../components/Navbar"
 import Footer from "../../components/Footer"
 import "../../styles/ServicePage.css"
-import desarrollo from "../../assets/imagenWeb.png"
 import progra from "../../assets/progra.jpg"
 
 const DesarrolloWeb = () => {
