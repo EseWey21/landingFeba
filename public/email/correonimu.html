@@ -1,0 +1,366 @@
+<p>&nbsp;</p>
+<style>
+  :root {
+    --azul-marino: #1a1f36;
+    --aqua: #00bfd8;
+    --naranja: #f65f4c;
+    --blanco: #ffffff;
+    --gris-claro: #d9d9d9;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Poppins", Arial, sans-serif;
+    color: var(--azul-marino);
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 800px;
+    background-color: var(--blanco);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    margin: 40px auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gris-claro);
+  }
+
+  .logo {
+    max-width: 220px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    color: var(--azul-marino);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--naranja) 0%, var(--aqua) 100%);
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  a {
+    color: var(--aqua);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--naranja);
+  }
+
+  .highlight {
+    color: var(--azul-marino);
+    font-weight: 500;
+  }
+
+  .contacto {
+    margin-top: 30px;
+    background-color: rgba(0, 191, 216, 0.05);
+    padding: 25px;
+    border-radius: 8px;
+  }
+
+  .contacto-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--azul-marino);
+    margin-bottom: 15px;
+  }
+
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .contacto-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .contacto-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contacto-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .contacto-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contacto-label {
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: var(--azul-marino);
+  }
+
+  .contacto-value {
+    color: var(--azul-marino);
+    word-break: break-word;
+  }
+
+  .contacto-value a {
+    color: var(--aqua);
+  }
+
+  .firma {
+    margin-top: 40px;
+    font-weight: 600;
+    color: var(--azul-marino);
+  }
+
+  .footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    padding-top: 20px;
+    border-top: 1px solid var(--gris-claro);
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+  }
+
+  .social-icon {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .social-icon:hover {
+    transform: translateY(-3px);
+  }
+
+  .social-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 30px 20px;
+      margin: 20px;
+      width: auto;
+    }
+
+    .contacto-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 992px) and (min-width: 769px) {
+    .contacto-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="header">
+    <img
+      class="logo"
+      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/feba_completo-SwW26D5LPOtVFXYkdjGbOzsYickkHK.png"
+      alt="Feba Code"
+    />
+  </div>
+
+  <h1>Desarrollo de app con IA</h1>
+
+  <p>Hola Nimu,</p>
+  <p>
+    Vimos tu historia buscando a alguien <span class="highlight">especializado en IA para el desarrollo de una app</span>. Somos el equipo de <strong>Feba Code</strong>, un estudio que diseña y construye <strong>soluciones digitales personalizadas</strong> con inteligencia artificial, backend sólido y experiencia de usuario optimizada.
+  </p>
+  <p>
+    Nos enfocamos en desarrollar productos funcionales y escalables, combinando IA con diseño claro, buen rendimiento y arquitectura moderna. Hemos trabajado en proyectos con asistentes conversacionales, análisis de datos, automatizaciones y generación de contenido inteligente.
+  </p>
+
+  <p class="highlight">Tecnologías y herramientas con las que trabajamos:</p>
+  <p>
+    • Frameworks: <strong>React, React Native, Next.js, Node.js, FastAPI</strong><br />
+    • Lenguajes: <strong>Python, TypeScript, C#</strong><br />
+    • Bases de datos: <strong>PostgreSQL, SQLite, Supabase</strong><br />
+    • IA y LLMs: <strong>OpenAI, Anthropic, Gemini, Whisper, LangChain</strong><br />
+    • Infraestructura: <strong>Vercel, AWS, Render, Docker</strong><br />
+    • UI/UX: <strong>Tailwind, GSAP, Figma, Shadcn/UI</strong>
+  </p>
+
+  <p>
+    Si tu idea involucra alguna de estas áreas o quieres explorar cómo aplicamos IA en productos reales, nos encantaría platicar más a fondo sobre tu proyecto.
+  </p>
+
+  <div class="contacto">
+    <div class="contacto-title">&iquest;C&oacute;mo podemos ayudarle?</div>
+    <p>
+      Si desean conocer m&aacute;s sobre c&oacute;mo podemos ayudarles a
+      optimizar su sitio web y mejorar la experiencia de sus clientes, pueden
+      contactarnos directamente:
+    </p>
+    <div class="contacto-grid">
+      <div class="contacto-item">
+        <div class="contacto-icon">
+          <img src="https://febacode.com/logos/email.png" alt="Correo" />
+        </div>
+        <div class="contacto-text">
+          <div class="contacto-label">Correo:</div>
+          <div class="contacto-value">contacto@febacode.com</div>
+        </div>
+      </div>
+      <div class="contacto-item">
+        <div class="contacto-icon">
+          <img src="https://febacode.com/logos/whatsapp.png" alt="WhatsApp" />
+        </div>
+        <div class="contacto-text">
+          <div class="contacto-label">WhatsApp:</div>
+          <div class="contacto-value">
+            <a href="https://wa.me/525644129078" target="_blank" rel="noopener"
+              >56 4412 9078</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="contacto-item">
+        <div class="contacto-icon">
+          <img src="https://febacode.com/logos/sitio-web.png" alt="Sitio web" />
+        </div>
+        <div class="contacto-text">
+          <div class="contacto-label">Sitio web:</div>
+          <div class="contacto-value">
+            <a href="https://www.febacode.com" target="_blank" rel="noopener"
+              >www.febacode.com</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="contacto-item">
+        <div class="contacto-icon">
+          <img src="https://febacode.com/logos/social.png" alt="Instagram" />
+        </div>
+        <div class="contacto-text">
+          <div class="contacto-label">Instagram:</div>
+          <div class="contacto-value">
+            <a
+              href="https://www.instagram.com/febacode/"
+              target="_blank"
+              rel="noopener"
+              >@febacode</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="contacto-item">
+        <div class="contacto-icon">
+          <img src="https://febacode.com/logos/facebook.png" alt="Facebook" />
+        </div>
+        <div class="contacto-text">
+          <div class="contacto-label">Facebook:</div>
+          <div class="contacto-value">
+            <a
+              href="https://www.facebook.com/febacode/"
+              target="_blank"
+              rel="noopener"
+              >FEBA Code</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="contacto-item">
+        <div class="contacto-icon">
+          <img src="https://febacode.com/logos/tiktok.png" alt="TikTok" />
+        </div>
+        <div class="contacto-text">
+          <div class="contacto-label">TikTok:</div>
+          <div class="contacto-value">
+            <a
+              href="https://www.tiktok.com/@febacode"
+              target="_blank"
+              rel="noopener"
+              >@febacode</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="firma">Atentamente,<br />Equipo Feba Code</p>
+
+  <div class="footer">
+    <div class="social-links">
+      <a
+        class="social-icon"
+        href="https://www.instagram.com/febacode/"
+        target="_blank"
+        rel="noopener"
+      >
+        <img src="https://febacode.com/logos/social.png" alt="Instagram" />
+      </a>
+      <a
+        class="social-icon"
+        href="https://www.facebook.com/febacode/"
+        target="_blank"
+        rel="noopener"
+      >
+        <img src="https://febacode.com/logos/facebook.png" alt="Facebook" />
+      </a>
+      <a
+        class="social-icon"
+        href="https://www.tiktok.com/@febacode"
+        target="_blank"
+        rel="noopener"
+      >
+        <img src="https://febacode.com/logos/tiktok.png" alt="TikTok" />
+      </a>
+    </div>
+    <p>&copy; 2025 Feba Code. Todos los derechos reservados.</p>
+  </div>
+</div>
