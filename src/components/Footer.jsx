@@ -104,6 +104,17 @@ const Footer = () => {
               >
                 <Facebook size={20} />
               </motion.a>
+              <motion.a
+                href="https://www.facebook.com/febacode"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                variants={socialVariants}
+                whileHover="hover"
+                custom={0}
+              >
+                <Facebook size={20} />
+              </motion.a>
 
               <motion.a
                 href="https://www.tiktok.com/@febacode"
