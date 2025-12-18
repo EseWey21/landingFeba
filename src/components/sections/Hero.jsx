@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import "../../styles/Hero.css"
 import codigoImg from "../../assets/codigo.png"
+import Snowfall from "react-snowfall"
 
 const Hero = () => {
   const containerVariants = {
