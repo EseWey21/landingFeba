@@ -7,12 +7,12 @@ import DesarrolloWeb from "./pages/services/DesarrolloWeb"
 import SistemasEmpresariales from "./pages/services/SistemasEmpresariales"
 import PlataformasIA from "./pages/services/PlataformasIA"
 import "./App.css"
-import Snowfall from "react-snowfall"
+// import Snowfall from "react-snowfall"
 function App() {
   return (
     <Router>
       <div className="app-container">
-        <Snowfall 
+        {/* <Snowfall 
           color="#82C3D9"
           snowflakeCount={200}
           style={{
@@ -21,7 +21,7 @@ function App() {
             height: '100vh',
             zIndex: 9999
           }}
-        />
+        /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/desarrolloweb" element={<DesarrolloWeb />} />
