@@ -4,9 +4,7 @@ import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import Logo from "./Logo";
 import "../styles/Footer.css";
-import febaLogo from "../assets/feba_completo_blanco.png";
 import { SiTiktok } from "react-icons/si";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -197,15 +195,7 @@ const Footer = () => {
               <h3 className="footer-links-title">Servicios</h3>
               <ul>
                 <li>
-                  <Link to="/desarrolloweb">Desarrollo Web</Link>
-                </li>
-                <li>
-                  <Link to="/sistemasempresariales">
-                    Sistemas Empresariales
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/plataformasia">Plataformas con IA</Link>
+                  <a href="#contacto" onClick={(e) => handleNavClick(e, "contacto")}>Cotiza tu proyecto</a>
                 </li>
               </ul>
             </motion.div>
@@ -238,13 +228,7 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <motion.p className="footer-copyright" variants={itemVariants}>
-            &copy; {currentYear}{" "}
-            <img
-              src={febaLogo || "/placeholder.svg"}
-              alt="Feba Code"
-              className="footer-logo"
-            />{" "}
-            Todos los derechos reservados.
+            &copy; {currentYear} Feba Code. Todos los derechos reservados.
           </motion.p>
           <motion.div className="footer-legal" variants={itemVariants}>
             <a href="#privacidad" onClick={(e) => e.preventDefault()}>

@@ -6,7 +6,6 @@ import { motion } from "framer-motion"
 import Navbar from "../../components/Navbar"
 import Footer from "../../components/Footer"
 import "../../styles/ServicePage.css"
-import progra from "../../assets/progra.jpg"
 
 const DesarrolloWeb = () => {
   useEffect(() => {
@@ -84,15 +83,12 @@ const DesarrolloWeb = () => {
       <Navbar />
 
       <main className="service-main">
-        <div className="service-hero-with-image">
-          <div className="hero-background">
-            <img
-              src={progra || "/placeholder.svg"}
-              alt="Desarrollo Web - Código de programación"
-              className="hero-background-image"
-            />
-            <div className="hero-overlay"></div>
-          </div>
+        <div className="service-hero-graphic service-hero-web">
+          <div className="service-hero-grid" aria-hidden="true" />
+          <div className="service-hero-glow service-hero-glow-cyan" aria-hidden="true" />
+          <div className="service-hero-glow service-hero-glow-coral" aria-hidden="true" />
+          <div className="service-ui-panel service-ui-panel-large" aria-hidden="true" />
+          <div className="service-ui-panel service-ui-panel-small" aria-hidden="true" />
           <div className="container">
             <motion.div
               className="hero-content"

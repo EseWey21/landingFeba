@@ -6,7 +6,6 @@ import { motion } from "framer-motion"
 import Navbar from "../../components/Navbar"
 import Footer from "../../components/Footer"
 import "../../styles/ServicePage.css"
-import plataforma from "../../assets/plataformaIA.png"
 
 const PlataformasIA = () => {
   useEffect(() => {
@@ -76,8 +75,12 @@ const PlataformasIA = () => {
       <Navbar />
 
       <main className="service-main">
-        <div className="service-hero-with-bg" style={{ backgroundImage: `url(${plataforma})` }}>
-          <div className="hero-overlay"></div>
+        <div className="service-hero-graphic service-hero-ai">
+          <div className="service-hero-grid" aria-hidden="true" />
+          <div className="service-hero-glow service-hero-glow-cyan" aria-hidden="true" />
+          <div className="service-hero-glow service-hero-glow-coral" aria-hidden="true" />
+          <div className="service-ui-panel service-ui-panel-large" aria-hidden="true" />
+          <div className="service-ui-panel service-ui-panel-small" aria-hidden="true" />
           <div className="container">
             <motion.div
               className="service-hero-content"

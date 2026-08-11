@@ -1,19 +1,10 @@
 "use client"
 
-import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
-import { useNavigate } from "react-router-dom"
 import "../../styles/ServiceCard.css"
 
 const ServiceCard = ({ service }) => {
-  const { icon, title, description, route } = service
-  const navigate = useNavigate()
-
-  const handleClick = () => {
-    if (route) {
-      navigate(route)
-    }
-  }
+  const { icon, title, description } = service
 
   return (
     <motion.div
@@ -39,14 +30,6 @@ const ServiceCard = ({ service }) => {
       </motion.div>
       <h3 className="service-title">{title}</h3>
       <p className="service-description">{description}</p>
-      <motion.button
-        className="service-button"
-        onClick={handleClick}
-        whileHover={{ x: 5 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-      >
-        Ver más <ArrowRight size={16} />
-      </motion.button>
     </motion.div>
   )
 }

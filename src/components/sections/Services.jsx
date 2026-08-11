@@ -13,21 +13,18 @@ const Services = () => {
       icon: <Monitor size={48} />,
       title: "Desarrollo Web",
       description: "Sitios, landings, eCommerce y sistemas administrativos adaptados a tus necesidades.",
-      route: "/desarrolloweb",
     },
     {
       id: 2,
       icon: <Building2 size={48} />,
       title: "Sistemas Empresariales",
       description: "Control de ingresos, inventarios, CRM y agendamientos para optimizar tus procesos.",
-      route: "/sistemasempresariales",
     },
     {
       id: 3,
       icon: <BrainCircuit size={48} />,
       title: "Plataformas con IA",
       description: "Asistentes inteligentes, comparadores y cazadores de precios con tecnología avanzada.",
-      route: "/plataformasia",
     },
   ]
 
@@ -42,6 +39,7 @@ const Services = () => {
       <div className="container">
         <ScrollReveal>
           <div className="section-header">
+            <div className="eyebrow">01 · Servicios</div>
             <h2 className="section-title">¿Qué hacemos?</h2>
             <p className="section-subtitle">Ofrecemos soluciones digitales personalizadas para impulsar tu negocio</p>
           </div>

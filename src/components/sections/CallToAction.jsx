@@ -33,6 +33,7 @@ const CallToAction = () => {
       <div className="container">
         <ScrollReveal>
           <div className="cta-content">
+            <div className="eyebrow eyebrow-light">03 · Empecemos</div>
             <h2 className="cta-title">
               ¿Listo para llevar tu idea al siguiente nivel?
             </h2>

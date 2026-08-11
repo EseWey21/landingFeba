@@ -217,7 +217,15 @@ const Navbar = () => {
               </motion.li>
             ))}
           </ul>
-          <motion.div className="navbar-cta" variants={itemVariants}></motion.div>
+          <motion.a
+            className="navbar-contact"
+            href="https://wa.me/525644129078?text=Hola,%20deseo%20cotizar%20un%20desarrollo%20de%20software"
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={itemVariants}
+          >
+            Hablemos <span>↗</span>
+          </motion.a>
         </motion.div>
 
         {!isOpen && (

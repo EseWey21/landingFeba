@@ -1,0 +1,147 @@
+/* La interfaz de producto domina el hero y define su altura natural. */
+.hero-glow-one {
+  animation: cyan-drift 5.5s ease-in-out infinite alternate;
+}
+
+.hero-glow-two {
+  animation: coral-drift 7s ease-in-out infinite alternate;
+}
+
+.hero-glow-three {
+  top: 115px;
+  left: 8%;
+  width: 330px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(30, 174, 255, .24), transparent 70%);
+  animation: blue-spark 6.5s ease-in-out infinite alternate;
+}
+
+.hero-glow-four {
+  top: 160px;
+  right: 5%;
+  width: 300px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255, 132, 78, .18), transparent 70%);
+  animation: orange-spark 8s ease-in-out infinite alternate;
+}
+
+.hero-glow-five {
+  bottom: 155px;
+  left: 42%;
+  width: 360px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(35, 202, 219, .17), transparent 69%);
+  animation: center-spark 7s ease-in-out infinite alternate;
+}
+
+@keyframes cyan-drift {
+  from { transform: translate3d(-30px, 25px, 0) scale(.92); opacity: .5; }
+  to { transform: translate3d(230px, -105px, 0) scale(1.25); opacity: 1; }
+}
+
+@keyframes coral-drift {
+  from { transform: translate3d(35px, -30px, 0) scale(.9); opacity: .5; }
+  to { transform: translate3d(-215px, 125px, 0) scale(1.22); opacity: 1; }
+}
+
+@keyframes blue-spark {
+  from { transform: translate3d(-70px, 15px, 0) scale(.7); opacity: .25; }
+  to { transform: translate3d(140px, 105px, 0) scale(1.35); opacity: .9; }
+}
+
+@keyframes orange-spark {
+  from { transform: translate3d(80px, -20px, 0) scale(.75); opacity: .2; }
+  to { transform: translate3d(-125px, 110px, 0) scale(1.3); opacity: .85; }
+}
+
+@keyframes center-spark {
+  from { transform: translate3d(-70px, 35px, 0) scale(.72); opacity: .18; }
+  to { transform: translate3d(90px, -70px, 0) scale(1.3); opacity: .72; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow-one,
+  .hero-glow-two,
+  .hero-glow-three,
+  .hero-glow-four,
+  .hero-glow-five { animation: none; }
+}
+
+.hero-centered {
+  min-height: 0;
+  padding-top: 150px;
+  padding-bottom: 0;
+}
+
+.hero-centered .hero-title {
+  font-size: clamp(2.8rem, 3.5vw, 4.5rem);
+  line-height: .98;
+  letter-spacing: -.075em;
+}
+
+/* Conserva la composición vertical tras ocultar la nota del hero. */
+.hero-note-spacer { min-height: 15px; }
+
+.site-preview,
+.site-preview-hero {
+  min-height: 390px;
+}
+
+.site-preview-hero {
+  padding-top: 62px;
+  padding-bottom: 62px;
+}
+
+@media (max-width: 800px) {
+  .hero-centered { padding-top: 145px; }
+  .hero-centered .hero-title { font-size: clamp(2.65rem, 8.5vw, 3.75rem); }
+
+  .site-preview,
+  .site-preview-hero {
+    min-height: 310px;
+  }
+
+  .site-preview-hero {
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-centered { padding-top: 128px; }
+  .hero-centered .hero-title { font-size: 2.55rem; }
+
+  .site-preview,
+  .site-preview-hero {
+    min-height: 245px;
+  }
+
+  .site-preview-hero {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+}
+
+/* Ejemplo de sitio cliente: restaurante ficticio, independiente de la marca Feba. */
+.client-site { min-height: 390px; background: #f7fcfd; color: #162c45; }
+.client-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 30px; border-bottom: 1px solid #d9eef0; font-size: 9px; }
+.client-nav b { font-family: Georgia, serif; font-size: 16px; letter-spacing: .12em; }
+.client-nav b span { color: #20bdcf; }
+.client-nav div { color: #607586; }
+.client-nav button { margin-left: 17px; padding: 7px 11px; border: 0; border-radius: 3px; background: #162c45; color: white; font: 700 9px Manrope; }
+.client-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 332px; }
+.client-copy { padding: 57px 0 42px 62px; }
+.client-copy small { color: #20aebd; font: 700 8px "DM Mono", monospace; letter-spacing: .06em; }
+.client-copy h2 { margin: 11px 0 9px; font: 38px/.92 Georgia, serif; letter-spacing: -.055em; }
+.client-copy p { color: #667b8c; font-size: 10px; }
+.client-copy button { display: flex; align-items: center; gap: 5px; margin-top: 15px; padding: 9px 12px; border: 0; border-radius: 3px; background: #f5674f; color: white; font-size: 9px; font-weight: 800; }
+.client-visual { position: relative; overflow: hidden; display: grid; place-items: center; background: linear-gradient(135deg, #123853, #187787); }
+.client-visual::before { content: ""; position: absolute; width: 280px; height: 280px; border-radius: 50%; background: rgba(76,212,223,.28); transform: translate(52px, 26px); }
+.plate { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 9px; width: 142px; height: 142px; border: 12px solid #d4f2f3; border-radius: 50%; background: #f5674f; box-shadow: 0 16px 30px rgba(4,25,43,.32); }
+.plate i { width: 19px; height: 38px; border-radius: 50%; background: #f2ca65; transform: rotate(28deg); }
+.plate i:nth-child(2) { height: 48px; background: #efffff; transform: rotate(-10deg); }.plate i:nth-child(3) { background: #20bdcf; transform: rotate(48deg); }
+.olive-leaf { position: absolute; z-index: 2; width: 77px; height: 24px; border-radius: 100% 0 100% 0; background: #20bdcf; opacity: .9; }.leaf-one { top: 43px; right: 44px; transform: rotate(42deg); }.leaf-two { bottom: 31px; left: 40px; transform: rotate(-40deg); }
+.client-visual > span { position: absolute; z-index: 3; right: 19px; bottom: 16px; padding: 9px 11px; border-radius: 4px; background: rgba(255,255,255,.94); color: #4e6d7d; font-size: 8px; line-height: 1.45; }.client-visual > span b { color: #f5674f; }
+
+@media (max-width: 800px) { .client-site { min-height: 310px; }.client-hero { min-height: 258px; }.client-copy { padding: 38px 28px; }.client-copy h2 { font-size: 30px; }.client-nav div { display: none; } }
+@media (max-width: 520px) { .client-site { min-height: 245px; }.client-hero { display: block; min-height: 195px; }.client-copy { padding: 28px; }.client-copy h2 { font-size: 26px; }.client-visual { display: none; } }

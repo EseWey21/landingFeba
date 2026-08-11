@@ -5,7 +5,7 @@ import FeatureCard from "../cards/FeatureCard"
 import ScrollReveal from "../ScrollReveal"
 import StaggerReveal from "../StaggerReveal"
 import "../../styles/Features.css"
-import organizacion from "../../assets/organizacion.png"
+import experienceTechIllustration from "../../assets/experience-tech-illustration.png"
 
 const Features = () => {
   const features = [
@@ -39,6 +39,7 @@ const Features = () => {
       <div className="container">
         <ScrollReveal>
           <div className="section-header">
+            <div className="eyebrow">02 · Nuestra forma de trabajar</div>
             <h2 className="section-title">¿Por qué elegirnos?</h2>
             <p className="section-subtitle">Tecnología funcional, visualmente clara y creada contigo</p>
           </div>
@@ -70,7 +71,7 @@ const Features = () => {
             </div>
             <div className="features-showcase-image">
               <div className="features-image-container">
-                <img src={organizacion} alt="Experiencia de Usuario" />
+                <img src={experienceTechIllustration} alt="Ilustración de interfaces conectadas para una experiencia digital" />
               </div>
             </div>
           </div>
