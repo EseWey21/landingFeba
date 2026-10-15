@@ -7,23 +7,6 @@ import ScrollReveal from "../ScrollReveal";
 import "../../styles/CallToAction.css";
 
 const CallToAction = () => {
-  // Función para manejar la navegación suave sin cambiar la URL
-  const handleNavClick = (e, sectionId) => {
-    e.preventDefault();
-    const section = document.getElementById(sectionId);
-    if (section) {
-      // Calcular la posición de la sección
-      const sectionPosition =
-        section.getBoundingClientRect().top + window.scrollY;
-
-      // Scroll suave a la sección
-      window.scrollTo({
-        top: sectionPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <section id="contacto" className="cta section">
       <div className="cta-bg">
