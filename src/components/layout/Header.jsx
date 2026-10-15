@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { Menu } from "lucide-react"
-import Logo from "./Logo"
+import LogoLink from "./LogoLink"
 import ThemeToggle from "./ThemeToggle"
 import MobileMenu from "./MobileMenu"
 import Button from "../ui/Button"
@@ -37,9 +37,7 @@ const Header = () => {
   return (
     <header className="site-header">
       <div className="container header-row">
-        <Link to="/" className="header-logo" aria-label="FebaCode, ir al inicio">
-          <Logo />
-        </Link>
+        <LogoLink />
 
         <nav className="header-nav" aria-label="Principal">
           <ul>

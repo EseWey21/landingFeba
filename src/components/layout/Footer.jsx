@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react"
-import Logo from "./Logo"
+import LogoLink from "./LogoLink"
 import { site } from "../../config/site"
 import { navLinks, servicePages, legalPages } from "../../config/nav"
 
@@ -22,9 +22,7 @@ const Footer = () => (
     <div className="container">
       <div className="footer-grid">
         <div className="footer-brand">
-          <Link to="/" className="header-logo" aria-label="FebaCode, ir al inicio">
-            <Logo />
-          </Link>
+          <LogoLink />
           <p className="footer-tagline">{site.tagline}</p>
           <ul className="footer-social">
             {social.map(({ label, href, Icon }) => (
