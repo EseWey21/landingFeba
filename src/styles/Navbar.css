@@ -51,14 +51,14 @@
   gap: 5px;
   padding: 12px 20px;
   border-radius: 8px;
-  background: var(--orange);
-  color: #fff;
+  background: #F65F4C;
+  color: #1A1F36;
   font-size: 13px;
   font-weight: 750;
   box-shadow: 0 8px 16px rgba(245, 103, 79, .26);
 }
 
-.navbar-contact:hover { color: #fff; background: #e95340; transform: translateY(-1px); }
+.navbar-contact:hover { color: #1A1F36; background: #F65F4C; box-shadow: 0 10px 22px rgba(245, 103, 79, .4); transform: translateY(-1px); }
 .navbar-contact span { font-size: 15px; line-height: 1; }
 
 .navbar.scrolled .navbar-links a { color: #5f6f82; }
@@ -85,7 +85,7 @@
   .mobile-links a.active { color: var(--blue); }
   .mobile-cta { display: block; }
   .mobile-cta a { display: block; }
-  .mobile-cta .btn { padding: 14px 20px; border-radius: 8px; background: var(--orange); color: #fff; }
+  .mobile-cta .btn { padding: 14px 20px; border-radius: 8px; background: #F65F4C; color: #1A1F36; }
 }
 
 /* El botón del menú es un <button> real: se restablece el estilo nativo */
