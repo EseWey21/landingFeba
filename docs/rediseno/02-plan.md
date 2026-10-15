@@ -209,7 +209,7 @@ Puerta de lanzamiento A: build y lint limpios, preview revisado por ti en iPhone
 - Partir de `main` actualizada (`git fetch && git pull --ff-only`). Ramas: `feat/hotfix-p0` (Release A) y `feat/rediseno-web-v2` (Release B, desde `main` después de A). Commits chicos en español, cada uno con build verde.
 - Traer lo legal de `Johan` con `git checkout origin/Johan -- <4 archivos>`; no fusionar la rama ni sobrescribir `App.jsx`, `Home.jsx` ni `Footer.jsx`.
 - Sin `push --force`, sin borrar ramas remotas, sin merge a `main` sin tu OK. PR contra `main` con descripción en español, capturas y riesgos.
-- **Reversión:** Instant Rollback en el panel de Vercel (o `vercel rollback`) al último despliegue bueno. Antes de empezar anotaré cuál es el último despliegue en producción (**pendiente: requiere acceso a Vercel**, no lo he consultado). La higiene del repo va en commit aparte para poder revertirla con `git revert`.
+- **Reversión:** Instant Rollback en el panel de Vercel (o `vercel rollback`) al último despliegue bueno. **Último despliegue bueno en producción (según el dueño, 15-oct-2026): "Rediseña la landing de Feba Code" (commit `ea3ee63`, `main`).** Si el Release A falla en producción, se restaura ese despliegue con Instant Rollback. La higiene del repo va en commit aparte para poder revertirla con `git revert`.
 - No se cambia DNS, dominios ni variables de entorno sin preguntarte.
 
 ## 10. Decisiones de la ronda 2 (resueltas)
