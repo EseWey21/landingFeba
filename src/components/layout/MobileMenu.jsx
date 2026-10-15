@@ -64,7 +64,9 @@ const MobileMenu = ({ open, onClose, active }) => {
     }
   }, [open, onClose])
 
-  if (!mounted || typeof document === "undefined") return null
+  // Se muestra en el mismo render en que `open` pasa a true: así el efecto de foco
+  // ya encuentra el menú en el DOM (con `mounted` solo, llegaba un render tarde).
+  if (!(open || mounted) || typeof document === "undefined") return null
 
   let i = 0 // índice para el escalonado de la entrada
 
