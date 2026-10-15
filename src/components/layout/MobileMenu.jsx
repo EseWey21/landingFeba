@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import { X } from "lucide-react"
 import Logo from "./Logo"
@@ -6,10 +6,32 @@ import Button from "../ui/Button"
 import { navLinks, servicePages } from "../../config/nav"
 import { waLink } from "../../config/site"
 
+const EXIT_MS = 260
+
 // Se renderiza en <body> (fuera del <header>) para no heredar transform ni
 // backdrop-filter. Esc cierra, el foco se queda dentro y vuelve al botón.
+// Al cerrar se mantiene montado EXIT_MS para que la salida se anime.
 const MobileMenu = ({ open, onClose, active }) => {
   const ref = useRef(null)
+  const [mounted, setMounted] = useState(open)
+  const [closing, setClosing] = useState(false)
+
+  useEffect(() => {
+    if (open) {
+      setMounted(true)
+      setClosing(false)
+      return
+    }
+    if (!mounted) return
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    setClosing(true)
+    const t = setTimeout(() => {
+      setMounted(false)
+      setClosing(false)
+    }, reduce ? 0 : EXIT_MS)
+    return () => clearTimeout(t)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open])
 
   useEffect(() => {
     if (!open) return
@@ -42,10 +64,19 @@ const MobileMenu = ({ open, onClose, active }) => {
     }
   }, [open, onClose])
 
-  if (!open || typeof document === "undefined") return null
+  if (!mounted || typeof document === "undefined") return null
+
+  let i = 0 // índice para el escalonado de la entrada
 
   return createPortal(
-    <div className="mobile-menu" id="menu-movil" ref={ref} role="dialog" aria-modal="true" aria-label="Menú">
+    <div
+      className={`mobile-menu${closing ? " is-closing" : ""}`}
+      id="menu-movil"
+      ref={ref}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menú"
+    >
       <div className="mobile-menu-top">
         <span className="header-logo"><Logo /></span>
         <button type="button" className="menu-close" aria-label="Cerrar menú" onClick={onClose}>
@@ -55,23 +86,25 @@ const MobileMenu = ({ open, onClose, active }) => {
       <nav aria-label="Principal (móvil)" className="mobile-menu-body">
         <ul className="mobile-links">
           {navLinks.map((l) => (
-            <li key={l.id}>
+            <li key={l.id} className="mm-item" style={{ "--i": i++ }}>
               <a href={l.href} onClick={onClose} aria-current={active === l.id ? "location" : undefined}>
-                {l.label}
+                <span>{l.label}</span>
               </a>
             </li>
           ))}
         </ul>
         <ul className="mobile-sub" aria-label="Servicios">
           {servicePages.map((s) => (
-            <li key={s.id}>
+            <li key={s.id} className="mm-item" style={{ "--i": i++ }}>
               <a href={s.href}>{s.label}</a>
             </li>
           ))}
         </ul>
-        <Button href={waLink("nav")} external className="mobile-cta" onClick={onClose}>
-          Cotizar por WhatsApp
-        </Button>
+        <div className="mm-item" style={{ "--i": i++ }}>
+          <Button href={waLink("nav")} external className="mobile-cta" onClick={onClose}>
+            Cotizar por WhatsApp
+          </Button>
+        </div>
       </nav>
     </div>,
     document.body,
