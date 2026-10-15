@@ -9,4 +9,4 @@ body.no-scroll { overflow:hidden; } a { color:inherit; text-decoration:none; } b
 
 /* Paleta tomada directamente de la identidad visual de Feba Code. */
 :root { --ink:#162c45; --blue:#20bdcf; --cyan:#92e1e8; --orange:#f5674f; --primary:#20bdcf; --accent:#f5674f; --turquoise:#20bdcf; --gradient-primary:linear-gradient(135deg,#162c45,#20bdcf); }
-.eyebrow-light { color:#9ae4ea; }.btn-cta { background:var(--orange); box-shadow:0 12px 26px rgba(245,103,79,.27); }.btn-cta:hover { background:#dd533f; }
+.eyebrow-light { color:#9ae4ea; }.btn-cta { background:#F65F4C; color:#1A1F36; box-shadow:0 12px 26px rgba(245,103,79,.27); }.btn-cta:hover { background:#F65F4C; box-shadow:0 16px 34px rgba(245,103,79,.45); }

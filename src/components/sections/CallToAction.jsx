@@ -2,27 +2,11 @@
 
 import { Rocket } from "lucide-react";
 import { motion } from "framer-motion";
+import { waLink } from "../../config/site";
 import ScrollReveal from "../ScrollReveal";
 import "../../styles/CallToAction.css";
 
 const CallToAction = () => {
-  // Función para manejar la navegación suave sin cambiar la URL
-  const handleNavClick = (e, sectionId) => {
-    e.preventDefault();
-    const section = document.getElementById(sectionId);
-    if (section) {
-      // Calcular la posición de la sección
-      const sectionPosition =
-        section.getBoundingClientRect().top + window.scrollY;
-
-      // Scroll suave a la sección
-      window.scrollTo({
-        top: sectionPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <section id="contacto" className="cta section">
       <div className="cta-bg">
@@ -42,7 +26,7 @@ const CallToAction = () => {
             </p>
 
             <motion.a
-              href="https://wa.me/525644129078?text=Hola,%20deseo%20cotizar%20un%20desarrollo%20de%20software"
+              href={waLink("cierre")}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-cta"

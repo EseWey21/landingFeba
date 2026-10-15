@@ -50,8 +50,6 @@ const Home = () => {
       <Hero />
       <Services />
       <Features />
-      {/* <Projects /> */}
-      {/* <Testimonials /> */}
       <CallToAction />
       <Footer />
     </div>

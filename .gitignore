@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# Evidencia local y herramientas
+docs/rediseno/evidencia/
+.playwright-mcp/

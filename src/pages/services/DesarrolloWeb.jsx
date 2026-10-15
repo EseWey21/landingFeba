@@ -66,17 +66,6 @@ const DesarrolloWeb = () => {
     },
   ]
 
-  const comparisonFeatures = [
-    "Diseño responsivo",
-    "Número de páginas",
-    "E-commerce",
-    "Panel administrativo",
-    "SEO",
-    "Integración APIs",
-    "Hosting incluido",
-    "Soporte técnico",
-    "Mantenimiento",
-  ]
 
   return (
     <div className="service-page">

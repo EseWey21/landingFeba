@@ -58,17 +58,6 @@ const PlataformasIA = () => {
     },
   ]
 
-  const comparisonFeatures = [
-    "Tipo de IA",
-    "Procesamiento de lenguaje",
-    "Integración canales",
-    "Dashboard analítico",
-    "APIs",
-    "Machine Learning",
-    "App móvil",
-    "Soporte técnico",
-    "Consultoría",
-  ]
 
   return (
     <div className="service-page">
