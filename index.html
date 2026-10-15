@@ -19,9 +19,8 @@
         var d = document.documentElement
         var t
         try { t = localStorage.getItem("theme") } catch (e) {}
-        if (t !== "light" && t !== "dark") {
-          t = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-        }
+        /* Por defecto siempre claro; solo se usa el oscuro si la persona lo eligió */
+        if (t !== "light" && t !== "dark") t = "light"
         d.setAttribute("data-theme", t)
         d.classList.add("js")
         setTimeout(function () {

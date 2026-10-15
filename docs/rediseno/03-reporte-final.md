@@ -24,17 +24,32 @@ Buenas prácticas baja de 100 a 96 por un aviso de CSP en modo solo reporte (ver
 
 ## Verificación hecha (Chrome real contra producción)
 - 18 corridas del Home (9 anchos de 320 a 2560 px, claro y oscuro) y 24 de las demás rutas: sin desbordamiento horizontal, sin violaciones de axe, un solo `h1` por página, sin objetivos táctiles menores de 44 px, consola sin errores.
-- Tema: sigue al sistema, se recuerda, y se aplica antes del primer pintado. Acordeón, selector y teclado funcionan. Sin JavaScript el contenido está en el HTML. Con `prefers-reduced-motion` no queda nada oculto.
+- Tema: el sitio carga **siempre en modo claro** (aunque el sistema esté en oscuro); si la persona elige el oscuro, se recuerda y se aplica antes del primer pintado. Acordeón, selector y teclado funcionan. Sin JavaScript el contenido está en el HTML. Con `prefers-reduced-motion` no queda nada oculto.
 - Responsividad del menú móvil comprobada en 320×568, 375×667, 390×844, 430×932 y en horizontal (667×375, 844×390).
 
-## Defecto encontrado después del lanzamiento
-El menú móvil animado (commit `c9597f8`) rompió el manejo de foco: el foco no entraba al diálogo y la trampa de foco no actuaba. Se detectó en la verificación posterior a producción. La corrección está en la rama `fix/menu-foco` y se probó en local; **sigue pendiente de merge**. Mientras tanto, producción tiene esa regresión de accesibilidad (el menú sí abre, cierra con Esc y navega; no se atrapa el foco).
+## Defecto encontrado después del lanzamiento (resuelto)
+El menú móvil animado (commit `c9597f8`) rompió el manejo de foco: el foco no entraba al diálogo y la trampa de foco no actuaba. Se detectó en la verificación posterior a producción. La corrección se probó en local y en producción; se mergeó y se verificó en producción.
 
-## Afirmaciones: cómo activar cada una
-En `src/config/claims.js`, `confirmed: true` la publica. Hoy solo `sin-costos-ocultos` está activa. Las demás (`codigo-del-cliente`, `sin-licencias`, `tiempos-de-entrega`, `servidores-propios`, `integraciones-extra`) no aparecen en el HTML y el build falla si alguna se cuela. La pregunta de FAQ "¿El sistema es mío…?" se publica solo cuando `codigo-del-cliente` se confirma y se redacta su respuesta (hoy está en `src/config/faq.js` como `[CONFIRMAR]`). Los precios detallados se activan con `published: true` en `src/config/pricing.js`.
+## Afirmaciones y precios: cómo activar cada uno
+- **Afirmaciones:** solo `sin-costos-ocultos` está publicada (`src/config/claims.js`). Las pendientes viven en `src/config/pendientes.js`, que el sitio no importa. Para publicar una, el dueño la confirma y se mueve a `claims.js`. La pregunta de FAQ "¿El sistema es mío…?" está en `pendientes.js` y se publica moviéndola a `src/config/faq.js` con su respuesta aprobada.
+- **Precios:** el sitio solo importa `src/config/pricing.js` (entradas "desde"). El catálogo completo está en `src/config/catalogo.js` y tampoco viaja en el JavaScript público. Para publicar un nivel, se agrega su dato a `pricing.js`.
+- **Salvaguarda:** `npm run build` falla si alguna afirmación pendiente, un nombre de nivel oculto o un monto oculto aparece en el HTML o en el JavaScript público.
+
+## Revisión adversarial (15-oct-2026) y su resolución
+Un revisor independiente encontró un bloqueante y varios hallazgos medios y bajos; los principales los verifiqué yo antes de actuar.
+| Hallazgo | Resolución |
+|---|---|
+| H01 Crítico: dos plantillas de correo con nombres de terceros y textos sin respaldo estaban públicas en `/email/` | Movidas a `docs/correos/` (fuera de `public/`) |
+| H02 Medio: precios ocultos y afirmaciones pendientes viajaban en el JavaScript público | Datos separados (`catalogo.js`, `pendientes.js`) y guarda de build sobre el bundle, probada con tres pruebas negativas |
+| H03 Medio: "Dominio y hosting" y el consumo de WhatsApp/IA no salían de `Precios.docx` | Se quita el dominio (el dueño confirmó que no se cobra); el consumo de WhatsApp/IA lo confirmó el dueño; hosting y mantenimiento mensual sí están en el documento |
+| H04 Medio: "Formulario de contacto integrado" junto a un aviso de que el sitio no tiene formularios | Reformulado a "Formulario para que tus clientes te contacten" |
+| H05 Medio: textos legales con afirmaciones sin respaldo | Se retiran "no vendemos tus datos" y "sin identificarte"; se suaviza la titularidad. Siguen pendientes de revisión legal |
+| H06 Medio: `febacode.com` sin www no responde | Pendiente del dueño (configuración de dominio) |
+| H07 Medio: promesas implícitas ("rápidas", "resultados medibles", "desde el primer día", "cuando quieras") | Reescritas |
+| Bajos | Canonical fuera de la 404, caché larga de assets, redirección de `/index.html`, meta descripciones, `Service.name`, lista de costos sin duplicados, README real y asset sin uso eliminado |
+No se atendió: la CSP sigue en modo solo reporte (el script de tema es inline y habría que agregar su hash antes de hacerla obligatoria), y no se pudo verificar que existan los perfiles de Facebook, Instagram y TikTok.
 
 ## Pendientes
-- Merge de `fix/menu-foco` (foco del menú).
 - Revisión legal del Aviso de Privacidad y los Términos (borradores sin razón social).
 - CSP en modo solo reporte: el script de tema en `<head>` es inline, así que `script-src 'self'` lo bloquearía si se activa; hay que añadir su hash antes de hacerla obligatoria. Lighthouse marca además un aviso de CSP con una URL `data:` que no identifiqué.
 - Validar la imagen Open Graph con WhatsApp y los resultados enriquecidos de Google (requiere la URL en producción).
@@ -42,7 +57,6 @@ En `src/config/claims.js`, `confirmed: true` la publica. Hoy solo `sin-costos-oc
 - Los precios de entrada se mantienen; los montos de hosting, mantenimiento y consumo de WhatsApp/IA no están definidos y el sitio los declara como "no incluidos".
 - Sin FAQ propia en las subpáginas, sin transiciones entre rutas y agente de IA diferido.
 - Revisión en Safari/iPhone real hecha por el dueño; no se verificó con WebKit.
-- Revisión adversarial por un revisor aparte: no se hizo.
 
 ## Reversión
 Instant Rollback en Vercel al despliegue del Release A (`68208d4`), o `git revert -m 1 86230b4` para deshacer el Release B. El último despliegue previo a todo el trabajo fue "Rediseña la landing de Feba Code" (`ea3ee63`).
