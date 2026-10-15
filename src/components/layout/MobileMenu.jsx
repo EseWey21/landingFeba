@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import { X } from "lucide-react"
-import Logo from "./Logo"
+import LogoLink from "./LogoLink"
 import Button from "../ui/Button"
 import { navLinks, servicePages } from "../../config/nav"
 import { waLink } from "../../config/site"
@@ -80,7 +80,7 @@ const MobileMenu = ({ open, onClose, active }) => {
       aria-label="Menú"
     >
       <div className="mobile-menu-top">
-        <span className="header-logo"><Logo /></span>
+        <LogoLink onClick={onClose} />
         <button type="button" className="menu-close" aria-label="Cerrar menú" onClick={onClose}>
           <X size={24} aria-hidden="true" />
         </button>

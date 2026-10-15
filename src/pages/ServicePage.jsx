@@ -1,12 +1,12 @@
 import { Check } from "lucide-react"
 import Button from "../components/ui/Button"
-import { services, notIncludedList } from "../config/services"
-import { fromLabel, PRICE_DISCLAIMER } from "../config/pricing"
+import { services } from "../config/services"
+import { fromLabel, hasFromPrice, notIncludedFor, PRICE_DISCLAIMER } from "../config/pricing"
 import { waLink } from "../config/site"
 
 const ServicePage = ({ slug }) => {
   const s = services[slug]
-  const hasPrice = fromLabel(s.pillar).startsWith("Desde")
+  const hasPrice = hasFromPrice(s.pillar)
 
   return (
     <>
@@ -19,7 +19,7 @@ const ServicePage = ({ slug }) => {
             <strong>{fromLabel(s.pillar)}</strong>
             {hasPrice && <span> MXN</span>}
           </p>
-          <p className="fine">{PRICE_DISCLAIMER}</p>
+          {hasPrice && <p className="fine">{PRICE_DISCLAIMER}</p>}
           <div className="hero-cta">
             <Button href={waLink(s.wa)} external>Cotizar por WhatsApp</Button>
           </div>
@@ -37,7 +37,7 @@ const ServicePage = ({ slug }) => {
             </ul>
           </div>
           <div data-reveal>
-            <h2>{hasPrice ? "Para cuando quieras crecer" : "Ejemplos de lo que podemos hacer"}</h2>
+            <h2>{hasPrice ? "Para crecer después" : "Ejemplos de lo que podemos hacer"}</h2>
             <ul className="check-list">
               {s.grows.map((i) => (
                 <li key={i}><Check size={18} aria-hidden="true" />{i}</li>
@@ -57,7 +57,7 @@ const ServicePage = ({ slug }) => {
             <h2>Costos aparte</h2>
             <ul className="plain-list">
               {s.extras.map((e) => (<li key={e}>{e}</li>))}
-              {notIncludedList.map((e) => (<li key={e}>{e}</li>))}
+              {notIncludedFor(s.pillar).map((n) => (<li key={n.id}>{n.text}</li>))}
             </ul>
             <p className="fine">Cotizamos todo contigo antes de empezar.</p>
           </div>

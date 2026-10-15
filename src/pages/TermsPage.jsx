@@ -24,7 +24,7 @@ const sections = [
   {
     title: "Propiedad intelectual del sitio",
     paragraphs: [
-      `El nombre, el logotipo y el contenido de este sitio pertenecen a ${site.name}. No se permite copiarlos ni usarlos con fines comerciales sin autorización por escrito.`,
+      `El nombre, el logotipo y el contenido de este sitio son de ${site.name}. Para usarlos con fines comerciales, solicita autorización por escrito a ${site.email}.`,
     ],
   },
   {

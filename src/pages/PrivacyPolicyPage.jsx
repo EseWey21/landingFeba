@@ -14,7 +14,7 @@ const sections = [
     title: "Qué datos recabamos",
     paragraphs: [
       "Este sitio no tiene formularios ni cuentas de usuario. Solo tratamos los datos que tú decidas compartirnos al escribirnos por WhatsApp o por correo, por ejemplo tu nombre, tu teléfono o correo y la descripción de tu proyecto.",
-      "Además, el sitio mide su rendimiento con Vercel Speed Insights, que recopila métricas técnicas agregadas (como tiempos de carga) sin identificarte.",
+      "Además, el sitio usa Vercel Speed Insights para medir su rendimiento (por ejemplo, tiempos de carga). Para conocer qué datos técnicos recopila esa herramienta, consulta el aviso de privacidad de Vercel.",
     ],
   },
   {
@@ -29,7 +29,7 @@ const sections = [
   {
     title: "Con quién compartimos tus datos",
     paragraphs: [
-      "No vendemos tus datos. Los mensajes que envías por WhatsApp o correo pasan por esas plataformas, que tienen sus propios avisos de privacidad. Podemos compartir datos con autoridades cuando la ley lo exija.",
+      "Los mensajes que envías por WhatsApp o correo pasan por esas plataformas, que tienen sus propios avisos de privacidad. Podemos compartir datos con autoridades cuando la ley lo exija.",
     ],
   },
   {

@@ -28,6 +28,15 @@
   --link: var(--navy);
   --shadow: 0 30px 60px -30px rgba(26, 31, 54, 0.5);
   --shadow-sm: 0 12px 30px -18px rgba(26, 31, 54, 0.45);
+  /* Cuadrícula del hero */
+  --grid-line: color-mix(in srgb, var(--navy) 9%, transparent);
+  /* Ventana de navegador (estilo Safari) */
+  --win-chrome: color-mix(in srgb, var(--gray) 45%, var(--white));
+  --win-tabs: color-mix(in srgb, var(--gray) 70%, var(--white));
+  --win-page: var(--white);
+  --win-text: var(--navy);
+  --win-muted: color-mix(in srgb, var(--navy) 72%, var(--white));
+  --win-line: var(--gray);
   color-scheme: light;
 
   /* Tipografía */
@@ -88,6 +97,13 @@
   --link: var(--aqua);
   --shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.6);
   --shadow-sm: 0 12px 30px -18px rgba(0, 0, 0, 0.7);
+  --grid-line: rgba(255, 255, 255, 0.1);
+  --win-chrome: color-mix(in srgb, var(--white) 11%, var(--navy));
+  --win-tabs: color-mix(in srgb, var(--white) 5%, var(--navy));
+  --win-page: color-mix(in srgb, var(--white) 7%, var(--navy));
+  --win-text: var(--white);
+  --win-muted: var(--gray);
+  --win-line: rgba(255, 255, 255, 0.16);
   color-scheme: dark;
 }
 

@@ -14,12 +14,11 @@ const Process = () => (
   <section className="section section-alt" id="proceso" aria-labelledby="proceso-title">
     <div className="container">
       <SectionHead id="proceso-title" eyebrow="Proceso" title="De tu idea a tu lanzamiento en cuatro pasos" />
+      {/* La línea avanza de izquierda a derecha (de arriba abajo en móvil) y cada paso se
+          enciende cuando la línea llega a él. Sin JavaScript se ve ya completo. */}
       <ol className="steps" data-reveal>
-        <svg className="steps-line" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
-          <line x1="0" y1="1" x2="100" y2="1" pathLength="1" />
-        </svg>
-        {steps.map((s) => (
-          <li key={s.n} className="step">
+        {steps.map((s, i) => (
+          <li key={s.n} className="step" style={{ "--i": i }}>
             <span className="step-n" aria-hidden="true">{s.n}</span>
             <h3>{s.title}</h3>
             <p>{s.text}</p>

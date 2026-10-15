@@ -17,8 +17,20 @@ const useRouteMeta = () => {
   }, [pathname])
 }
 
+// Al navegar a otra ruta (p. ej. desde el pie hacia el Aviso de Privacidad) la página
+// debe abrir hasta arriba, no en la posición de scroll de la ruta anterior.
+// Con ancla (#precios) se deja que el navegador se desplace a la sección.
+const useScrollToTop = () => {
+  const { pathname, hash } = useLocation()
+  useEffect(() => {
+    if (hash) return
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" })
+  }, [pathname, hash])
+}
+
 const App = () => {
   useRouteMeta()
+  useScrollToTop()
   return (
     <Layout>
       <Routes>
