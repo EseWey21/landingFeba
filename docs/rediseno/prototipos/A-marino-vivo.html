@@ -1,0 +1,45 @@
+<!doctype html><html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dirección A · Marino Vivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1A1F36;--aqua:#00BFD8;--coral:#F65F4C;--white:#fff;--gray:#D9D9D9;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0}body{background:var(--navy);color:var(--white);font:400 18px/1.5 Manrope,system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
+a{color:inherit}:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px clamp(16px,5vw,64px)}
+.brand{font-weight:800;letter-spacing:-.02em;font-size:22px}.brand i{color:var(--aqua);font-style:normal}
+nav{display:flex;gap:28px;font-size:15px}nav a{text-decoration:none;color:var(--gray);min-height:44px;display:inline-flex;align-items:center}nav a:hover{color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:800;text-decoration:none;color:var(--navy);transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:scale(.97)}
+.btn.p{background:var(--coral)}.btn.p:hover{box-shadow:0 10px 30px -8px var(--coral)}.btn.s{background:transparent;color:var(--white);box-shadow:inset 0 0 0 1.5px var(--aqua)}
+main{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:clamp(24px,6vw,72px) clamp(16px,5vw,64px) 72px;max-width:1360px;margin:auto}
+.tag{font:500 13px/1 "DM Mono",monospace;color:var(--aqua);letter-spacing:.08em;text-transform:uppercase;display:inline-flex;gap:10px;align-items:center;margin-bottom:24px}
+.tag:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--aqua)}
+h1{font-weight:800;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.035em}
+h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}h1 .w b{display:inline-block;font-weight:inherit;transform:translateY(105%);animation:up .8s var(--ease) forwards;animation-delay:calc(var(--i)*70ms)}
+h1 em{font-style:normal;color:var(--aqua)}@keyframes up{to{transform:none}}
+.sub{color:var(--gray);max-width:34ch;margin:24px 0 32px;font-size:clamp(17px,2vw,20px)}
+.cta{display:flex;gap:14px;flex-wrap:wrap}.trust{display:flex;gap:20px;flex-wrap:wrap;margin-top:28px;font:500 14px "DM Mono",monospace;color:var(--gray)}.trust b{color:var(--white);font-weight:500}
+.stage{perspective:1000px}.card{background:linear-gradient(160deg,#232948,#171b30);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:28px;transform:rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:transform .3s var(--ease);box-shadow:0 40px 80px -30px rgba(0,0,0,.6);opacity:0;animation:fade .9s .5s var(--ease) forwards}
+@keyframes fade{to{opacity:1}}
+.card h2{font:500 13px "DM Mono",monospace;color:var(--aqua);letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-top:1px solid rgba(255,255,255,.1);gap:16px;min-height:64px;transition:padding-left .2s var(--ease)}
+.row:hover{padding-left:8px}.row strong{font-size:18px}.row small{display:block;color:var(--gray);font-size:14px}.row span{font:500 14px "DM Mono",monospace;color:var(--aqua);white-space:nowrap}
+@media(max-width:860px){main{grid-template-columns:1fr}nav{display:none}main .btn{width:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition:none!important}h1 .w b{transform:none}}
+</style></head><body>
+<header><div class="brand">Feba<i>Code</i></div><nav><a href="#">Servicios</a><a href="#">Precios</a><a href="#">Proceso</a><a href="#">Preguntas</a><a href="#">Contacto</a></nav><a class="btn p" href="#" style="min-height:44px;padding:0 18px">WhatsApp</a></header>
+<main><section><div class="tag">Software e IA · CDMX</div>
+<h1 aria-label="Tecnología que convierte ideas complejas en resultados."><span id="t" aria-hidden="true"></span></h1>
+<p class="sub">Desarrollo a la medida, claro y a precio accesible para tu negocio.</p>
+<div class="cta"><a class="btn p" href="#">Cotizar por WhatsApp en 2 minutos →</a><a class="btn s" href="#">Ver precios</a></div>
+<div class="trust"><span><b>Landing desde $3,500 MXN</b></span><span>Sin costos ocultos</span></div></section>
+<div class="stage"><div class="card" id="card"><h2>Cuatro formas de empezar</h2>
+<div class="row"><div><strong>Desarrollo Web</strong><small>Tu presencia, lista para vender</small></div><span>desde $3,500</span></div>
+<div class="row"><div><strong>Sistemas Empresariales</strong><small>Orden en ventas e inventario</small></div><span>desde $7,000</span></div>
+<div class="row"><div><strong>Plataformas con IA</strong><small>Automatiza lo repetitivo</small></div><span>desde $7,000</span></div>
+<div class="row"><div><strong>Negocios Locales</strong><small>A la medida de tu giro</small></div><span>cotiza</span></div></div></div></main>
+<script>
+document.getElementById("t").innerHTML="Tecnología que convierte ideas complejas en resultados.".split(" ").map((w,k)=>`<span class="w"><b style="--i:${k}">${k===3||k===4?"<em>"+w+"</em>":w}</b></span> `).join("");
+const c=document.getElementById("card");
+if(matchMedia("(hover:hover) and (pointer:fine)").matches&&!matchMedia("(prefers-reduced-motion:reduce)").matches){addEventListener("pointermove",e=>{c.style.setProperty("--ry",(e.clientX/innerWidth-.5)*8+"deg");c.style.setProperty("--rx",-(e.clientY/innerHeight-.5)*6+"deg")})}
+</script></body></html>

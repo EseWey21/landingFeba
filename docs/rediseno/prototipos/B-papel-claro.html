@@ -1,0 +1,43 @@
+<!doctype html><html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dirección B · Papel Claro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1A1F36;--aqua:#00BFD8;--coral:#F65F4C;--white:#fff;--gray:#D9D9D9;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0}body{background:var(--white);color:var(--navy);font:400 18px/1.55 Manrope,system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px clamp(16px,5vw,64px);border-bottom:1px solid var(--gray)}
+.brand{font-weight:800;font-size:22px;letter-spacing:-.02em}nav{display:flex;gap:28px;font-size:15px}nav a{text-decoration:none;color:var(--navy);min-height:44px;display:inline-flex;align-items:center;opacity:.75}nav a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:14px;font-weight:800;text-decoration:none;color:var(--navy);transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:scale(.97)}.btn.p{background:var(--coral)}.btn.p:hover{box-shadow:0 12px 24px -10px var(--coral)}.btn.s{background:var(--aqua)}
+main{max-width:1200px;margin:auto;padding:clamp(40px,7vw,96px) clamp(16px,5vw,64px) 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.tag{display:inline-block;background:var(--gray);padding:8px 14px;border-radius:999px;font:500 13px "DM Mono",monospace;margin-bottom:24px}
+h1{font-weight:800;font-size:clamp(38px,5.6vw,70px);line-height:1.03;letter-spacing:-.035em}
+h1 mark{background:linear-gradient(var(--aqua),var(--aqua)) 0 90%/0% 38% no-repeat;color:inherit;animation:mark 1s .5s var(--ease) forwards}@keyframes mark{to{background-size:100% 38%}}
+h1,.sub,.cta,.trust{opacity:0;transform:translateY(16px);animation:in .7s var(--ease) forwards}.sub{animation-delay:.12s}.cta{animation-delay:.24s}.trust{animation-delay:.36s}@keyframes in{to{opacity:1;transform:none}}
+.sub{margin:24px 0 32px;max-width:36ch;color:#454a63}.cta{display:flex;gap:14px;flex-wrap:wrap}.trust{margin-top:26px;font:500 14px "DM Mono",monospace;display:flex;gap:22px;flex-wrap:wrap}
+.panel{background:var(--navy);color:var(--white);border-radius:28px;padding:26px;box-shadow:0 30px 60px -30px rgba(26,31,54,.5)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.chip{min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.25);background:transparent;color:var(--white);font:600 14px Manrope;cursor:pointer;transition:background .18s,color .18s,transform .18s var(--ease)}
+.chip:hover{border-color:var(--aqua)}.chip:active{transform:scale(.96)}.chip[aria-pressed=true]{background:var(--aqua);color:var(--navy);border-color:var(--aqua)}
+.chip:focus-visible{outline-color:var(--aqua)}
+.out{min-height:200px}.out h2{font-size:26px;letter-spacing:-.02em;margin-bottom:8px}.out p{color:var(--gray);font-size:16px;margin-bottom:18px}
+.price{font:500 14px "DM Mono",monospace;color:var(--aqua)}.price b{display:block;font:800 40px Manrope;color:var(--white);letter-spacing:-.03em;margin-top:2px}
+.out>*{animation:swap .35s var(--ease)}@keyframes swap{from{opacity:0;transform:translateY(8px)}}
+@media(max-width:860px){main{grid-template-columns:1fr}nav{display:none}main .btn{width:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition:none!important}}
+</style></head><body>
+<header><div class="brand">FebaCode</div><nav><a href="#">Servicios</a><a href="#">Precios</a><a href="#">Proceso</a><a href="#">Preguntas</a><a href="#">Contacto</a></nav><a class="btn p" href="#" style="min-height:44px;padding:0 18px">WhatsApp</a></header>
+<main><section><span class="tag">Software e IA · Ciudad de México</span>
+<h1>Tecnología que convierte <mark>ideas complejas</mark> en resultados.</h1>
+<p class="sub">Desarrollo a la medida, claro y a precio accesible para tu negocio.</p>
+<div class="cta"><a class="btn p" href="#">Cotizar por WhatsApp en 2 minutos</a><a class="btn s" href="#">Ver precios</a></div>
+<div class="trust"><span>Landing desde $3,500 MXN</span><span>Sin costos ocultos</span></div></section>
+<aside class="panel" aria-label="Elige qué necesitas"><div class="chips" role="group" aria-label="Servicio">
+<button class="chip" aria-pressed="true">Sitio web</button><button class="chip" aria-pressed="false">Sistema</button><button class="chip" aria-pressed="false">IA</button><button class="chip" aria-pressed="false">Negocio local</button></div>
+<div class="out" id="out" aria-live="polite"></div></aside></main>
+<script>
+const D=[["Desarrollo Web","Landing, sitio profesional o tienda en línea con WhatsApp integrado.","Desde","$3,500 MXN"],["Sistemas Empresariales","Punto de venta, inventario y reportes hechos para cómo trabajas.","Desde","$7,000 MXN"],["Plataformas con IA","Chatbots y automatización para atender y vender sin saturarte.","Desde","$7,000 MXN"],["Soluciones para Negocios Locales","Algo a la medida de tu restaurante, clínica, gimnasio o tienda.","","Cotización personalizada"]];
+const out=document.getElementById("out"),chips=[...document.querySelectorAll(".chip")];
+function show(k){const d=D[k];out.innerHTML=`<h2>${d[0]}</h2><p>${d[1]}</p><div class="price">${d[2]}<b>${d[3]}</b></div>`;chips.forEach((c,i)=>c.setAttribute("aria-pressed",i==k))}
+chips.forEach((c,i)=>c.onclick=()=>show(i));show(0);
+</script></body></html>
