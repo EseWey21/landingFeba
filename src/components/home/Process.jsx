@@ -8,7 +8,7 @@ const steps = [
 ]
 
 // Solo las integraciones que aparecen en el catálogo. Otras quedan en claims.js.
-const integrations = ["WhatsApp", "Facebook", "Stripe", "PayPal", "MercadoPago", "Google Sheets y Excel", "Facturación CFDI 4.0"]
+const integrations = ["WhatsApp", "Facebook e Instagram", "Stripe", "PayPal", "MercadoPago", "Google Sheets y Excel", "Google Maps", "Facturación CFDI 4.0"]
 
 const Process = () => (
   <section className="section section-alt" id="proceso" aria-labelledby="proceso-title">

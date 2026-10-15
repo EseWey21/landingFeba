@@ -39,3 +39,35 @@ Tres búsquedas rápidas. Casi todo viene de blogs de proveedores con interés c
 - Confirmar si las tres entradas "desde" están bien tal cual.
 - Montos o criterio de cobro de lo recurrente (hosting, mantenimiento, consumo de WhatsApp/IA) si quieres publicarlos.
 - Si quieres un análisis competitivo sólido, 3-5 URLs de competidores para leer sus páginas de precios directamente.
+
+---
+
+# Actualización: catálogo ajustado 2026 (15-oct-2026)
+
+Fuente: `Catalogo_Paquetes_y_Precios_FebaCode_2026_Ajustado.docx` (fórmula "-20% - 1"). Reemplaza a `Precios.docx` en lo publicado.
+
+## Entradas "desde" publicadas (primer paquete de cada pilar)
+| Pilar | Antes | Ahora | Paquete que lo respalda |
+|---|---|---|---|
+| Desarrollo Web | $3,500 | **$3,599** | Esencial / Básico ($3,599 – $5,999) |
+| Sistemas Empresariales | $7,000 | **$7,599** | Control Básico ($7,599 – $11,999) |
+| Plataformas con IA | $7,000 | **$6,799** | Starter IA ($6,799 – $11,599) |
+| Negocios Locales | Cotización personalizada | **$4,399** | Impulso Local Digital ($4,399 – $7,599) |
+
+Negocios Locales ahora tiene precio en el catálogo, por lo que deja de ser "Cotización personalizada". Los precios salen de `src/config/pricing.js`; las frases del FAQ, las meta descripciones y la insignia del hero se generan desde ahí.
+
+## Lo que NO se publica (decisión vigente: solo las entradas "desde")
+- Rangos máximos y paquetes superiores de los cuatro pilares.
+- Add-ons y pólizas con monto: acompañamiento mensual Web ($639 – $1,759/mes), CFDI 4.0 (+$9,599 – $14,399), migración de datos (+$3,999 – $11,999), póliza de sistema ($1,439 – $3,599/mes) y póliza de scraping/IA ($1,999 – $4,799/mes).
+Todo está en `src/config/catalogo.js`, que el sitio no importa. El build falla si algún monto que no sea una entrada "desde" aparece en el HTML, y falla también si `pricing.js` no coincide con el catálogo.
+
+## Cambios de contenido derivados del documento
+- Las páginas de servicio describen lo que incluye el primer paquete de cada pilar según el catálogo 2026 (alcance, usuarios, soporte inicial de 1 mes) y resumen los paquetes siguientes sin precio.
+- "Costos aparte" sigue el apartado de transparencia del documento: **dominio y hosting** (a nombre del cliente o dentro del acompañamiento mensual), acompañamiento mensual opcional tras el soporte inicial, y consumo de WhatsApp Business y APIs de IA (se paga directo al proveedor).
+- Integraciones: se agregan Instagram y Google Maps (aparecen en el documento).
+
+## Puntos que el documento contradice o deja sin confirmar
+1. **Dominio:** antes se indicó que el dominio no se cobraría; el documento lo lista como costo aparte ("Dominio anual", bajo cotización; "Dominio y Hosting se contrata a nombre del cliente"). Se publicó según el documento. Confirmar.
+2. **Afirmaciones del documento sin aprobación para el sitio** (no se publican; quedan en `src/config/pendientes.js` y el build las bloquea): "Propiedad de tu solución… sin rentas forzosas por cada usuario", atención "24/7", "garantía" de 1 a 3 meses, "ventaja de 30% a 50% frente a agencias". El soporte inicial se publica como "soporte técnico por 1 mes", sin la palabra "garantía".
+3. La sección "Justificación Estratégica (Uso Interno)" del documento es interna y no se publica.
+4. Hay detalles del documento que no se verificaron contra la realidad del equipo (por ejemplo, "hasta 50 productos", "3 flujos" o "2 bodegas"); se muestran tal cual.
