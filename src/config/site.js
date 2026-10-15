@@ -24,6 +24,13 @@ const WHATSAPP_MESSAGES = {
   hero: "Hola, quiero cotizar un proyecto con FebaCode (desde el inicio del sitio).",
   nav: "Hola, quiero cotizar un proyecto con FebaCode (desde el menú).",
   cierre: "Hola, quiero cotizar un proyecto con FebaCode (desde el cierre del sitio).",
+  servicios: "Hola, quiero contarles mi caso (desde la sección de servicios).",
+  precios: "Hola, quiero cotizar mi proyecto (desde la sección de precios).",
+  flotante: "Hola, quiero cotizar un proyecto con FebaCode (desde el botón de WhatsApp).",
+  web: "Hola, me interesa un sitio web (desde la página de Desarrollo Web).",
+  sistemas: "Hola, me interesa un sistema (desde la página de Sistemas Empresariales).",
+  ia: "Hola, me interesa una solución con IA (desde la página de Plataformas con IA).",
+  local: "Hola, tengo un negocio local y quiero cotizar (desde la página de Negocios Locales).",
   default: "Hola, deseo cotizar un desarrollo de software.",
 }
 
