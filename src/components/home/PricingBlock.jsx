@@ -9,7 +9,7 @@ const rows = ["web", "sistemas", "ia", "local"]
 const PricingBlock = () => (
   <section className="section" id="precios" aria-labelledby="precios-title">
     <div className="container">
-      <SectionHead id="precios-title" eyebrow="Precios" title="Sabes cuánto invertir desde el primer día">
+      <SectionHead id="precios-title" eyebrow="Precios" title="Precios claros antes de empezar">
         Precios de entrada claros. El monto final depende de tu alcance.
       </SectionHead>
 
@@ -32,7 +32,7 @@ const PricingBlock = () => (
         </article>
         <article className="compare-card" data-reveal>
           <h3>Acompañamiento mensual</h3>
-          <p>Hosting, mantenimiento, soporte y mejoras para que tu solución siga creciendo.</p>
+          <p>Hosting, respaldo y mantenimiento para que tu solución siga funcionando.</p>
           <span className="compare-price">Se cotiza según tu proyecto</span>
         </article>
       </div>
@@ -42,7 +42,7 @@ const PricingBlock = () => (
         <p>Para que no haya sorpresas, esto se cotiza o se paga aparte:</p>
         <ul>
           {notIncluded.map((n) => (
-            <li key={n}>{n}</li>
+            <li key={n.id}>{n.text}</li>
           ))}
         </ul>
       </div>

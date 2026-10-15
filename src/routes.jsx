@@ -6,11 +6,11 @@ import NotFound from "./pages/NotFound"
 import { services } from "./config/services"
 import { site } from "./config/site"
 import { faqItems } from "./config/faq"
-import { fromLabel } from "./config/pricing"
+import { pillars } from "./config/pricing"
 
 const HOME_TITLE = "FebaCode | Software, sitios web e IA para negocios en México"
 const HOME_DESCRIPTION =
-  "FebaCode crea software, sitios web y soluciones con inteligencia artificial a la medida para negocios y PyMEs de México. Landing desde $3,500 MXN. Cotiza por WhatsApp."
+  "Software, sitios web y soluciones con IA a la medida para negocios y PyMEs de México. Landing desde $3,500 MXN. Cotiza por WhatsApp con FebaCode."
 
 // JSON-LD: solo datos verdaderos. Sin calificaciones, reseñas ni premios.
 const organization = () => ({
@@ -41,12 +41,11 @@ const serviceLd = (slug) => {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: s.h1,
+    name: pillars[s.pillar].name,
     description: s.seoDescription,
     provider: { "@type": "ProfessionalService", name: site.name, url: site.url },
     areaServed: "MX",
     url: `${site.url}/servicios/${slug}`,
-    ...(fromLabel(s.pillar).startsWith("Desde") ? {} : {}),
   }
 }
 
@@ -76,7 +75,7 @@ export const routes = [
     path: "/terminos-y-condiciones",
     element: <TermsPage />,
     title: "Términos y Condiciones | FebaCode",
-    description: "Términos de uso del sitio web de FebaCode.",
+    description: "Términos de uso del sitio web de FebaCode: alcance de la información, precios de referencia, contratación de servicios y contacto.",
   },
 ]
 

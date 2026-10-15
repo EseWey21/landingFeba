@@ -1,6 +1,5 @@
 // Contenido de las subpáginas de servicio. Los precios salen de pricing.js y los
 // textos no prometen plazos, propiedad del código ni integraciones no listadas.
-import { notIncluded } from "./pricing"
 
 export const services = {
   "desarrollo-web": {
@@ -9,10 +8,10 @@ export const services = {
     seoTitle: "Desarrollo web a la medida para negocios | FebaCode",
     seoDescription: "Páginas web, landings y tiendas en línea para negocios y PyMEs de México, con WhatsApp integrado. Landing desde $3,500 MXN. Cotiza con FebaCode.",
     h1: "Tu negocio en internet, listo para recibir clientes.",
-    lead: "Páginas y tiendas en línea claras, rápidas y con WhatsApp integrado, hechas a la medida de tu marca.",
+    lead: "Páginas y tiendas en línea claras y con WhatsApp integrado, hechas a la medida de tu marca.",
     includes: [
       "Landing page profesional",
-      "Formulario de contacto integrado",
+      "Formulario para que tus clientes te contacten",
       "Menú digital con QR (restaurantes y cafeterías)",
       "Diseño responsivo y adaptado a tu marca",
       "Integración con WhatsApp",
@@ -25,7 +24,7 @@ export const services = {
       "Panel para editar tu contenido",
     ],
     forWho: "Emprendedores, profesionistas, restaurantes y negocios pequeños que quieren estar en internet sin complicarse.",
-    extras: ["Hosting y respaldo", "Mantenimiento mensual", "Posicionamiento SEO", "Marketing digital"],
+    extras: ["Posicionamiento SEO", "Marketing digital"],
   },
   "sistemas-empresariales": {
     pillar: "sistemas",
@@ -49,7 +48,7 @@ export const services = {
       "Agendamiento, dashboards y desarrollo a la medida",
     ],
     forWho: "Negocios en crecimiento que hoy llevan ventas e inventario en cuadernos, hojas de cálculo o varias herramientas separadas.",
-    extras: ["App móvil empresarial", "Multi-sucursal o multi-empresa", "Integración con marketplace o e-commerce", "Hosting y respaldo de datos"],
+    extras: ["App móvil empresarial", "Multi-sucursal o multi-empresa", "Integración con marketplace o e-commerce", "Marketing digital y automatizaciones"],
   },
   "plataformas-con-ia": {
     pillar: "ia",
@@ -92,9 +91,8 @@ export const services = {
       "Control de inventario y ventas",
       "Atención automática por WhatsApp",
     ],
-    forWho: "Restaurantes, clínicas, consultorios, gimnasios, barberías y abarrotes que quieren resultados medibles.",
+    forWho: "Restaurantes, clínicas, consultorios, gimnasios, barberías y abarrotes que necesitan un salto digital concreto.",
     extras: [],
   },
 }
 
-export const notIncludedList = notIncluded
