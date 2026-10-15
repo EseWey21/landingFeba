@@ -3,6 +3,7 @@
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import Logo from "./Logo";
+import { site } from "../config/site";
 import "../styles/Footer.css";
 import { SiTiktok } from "react-icons/si";
 
@@ -89,21 +90,10 @@ const Footer = () => {
         >
           <motion.div className="footer-info" variants={itemVariants}>
             <Logo />
-            <p className="footer-tagline">Soluciones que conectan.</p>
+            <p className="footer-tagline">{site.tagline}</p>
             <div className="footer-social">
               <motion.a
-                href="https://www.facebook.com/febacode"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                variants={socialVariants}
-                whileHover="hover"
-                custom={0}
-              >
-                <Facebook size={20} />
-              </motion.a>
-              <motion.a
-                href="https://www.facebook.com/febacode"
+                href={site.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -115,7 +105,7 @@ const Footer = () => {
               </motion.a>
 
               <motion.a
-                href="https://www.tiktok.com/@febacode"
+                href={site.social.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
@@ -127,7 +117,7 @@ const Footer = () => {
               </motion.a>
 
               <motion.a
-                href="https://www.instagram.com/febacode/"
+                href={site.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -205,15 +195,15 @@ const Footer = () => {
               <ul className="footer-contact">
                 <li>
                   <Mail size={16} />
-                  <a href="mailto:info@febacode.com">contacto@febacode.com</a>
+                  <a href={`mailto:${site.email}`}>{site.email}</a>
                 </li>
                 <li>
                   <Phone size={16} />
-                  <a href="tel:+525512345678">+52 56 4412 9078</a>
+                  <a href={site.phoneHref}>{site.phoneDisplay}</a>
                 </li>
                 <li>
                   <MapPin size={16} />
-                  <span>Ciudad de México, México</span>
+                  <span>{site.city}</span>
                 </li>
               </ul>
             </motion.div>
@@ -230,14 +220,6 @@ const Footer = () => {
           <motion.p className="footer-copyright" variants={itemVariants}>
             &copy; {currentYear} Feba Code. Todos los derechos reservados.
           </motion.p>
-          <motion.div className="footer-legal" variants={itemVariants}>
-            <a href="#privacidad" onClick={(e) => e.preventDefault()}>
-              Aviso de Privacidad
-            </a>
-            <a href="#terminos" onClick={(e) => e.preventDefault()}>
-              Términos y Condiciones
-            </a>
-          </motion.div>
         </motion.div>
       </div>
     </footer>

@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom" // Agregando hooks d
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Logo from "./Logo"
+import { waLink } from "../config/site"
 import "../styles/Navbar.css"
 
 const Navbar = () => {
@@ -219,7 +220,7 @@ const Navbar = () => {
           </ul>
           <motion.a
             className="navbar-contact"
-            href="https://wa.me/525644129078?text=Hola,%20deseo%20cotizar%20un%20desarrollo%20de%20software"
+            href={waLink("nav")}
             target="_blank"
             rel="noopener noreferrer"
             variants={itemVariants}
@@ -296,7 +297,7 @@ const Navbar = () => {
                   }}
                 >
                   <a
-                    href="https://wa.me/525644129078?text=Hola,%20deseo%20cotizar%20un%20desarrollo%20de%20software"
+                    href={waLink("nav")}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

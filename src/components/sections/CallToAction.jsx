@@ -2,6 +2,7 @@
 
 import { Rocket } from "lucide-react";
 import { motion } from "framer-motion";
+import { waLink } from "../../config/site";
 import ScrollReveal from "../ScrollReveal";
 import "../../styles/CallToAction.css";
 
@@ -42,7 +43,7 @@ const CallToAction = () => {
             </p>
 
             <motion.a
-              href="https://wa.me/525644129078?text=Hola,%20deseo%20cotizar%20un%20desarrollo%20de%20software"
+              href={waLink("cierre")}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-cta"
