@@ -1,0 +1,100 @@
+// Contenido de las subpáginas de servicio. Los precios salen de pricing.js y los
+// textos no prometen plazos, propiedad del código ni integraciones no listadas.
+import { notIncluded } from "./pricing"
+
+export const services = {
+  "desarrollo-web": {
+    pillar: "web",
+    wa: "web",
+    seoTitle: "Desarrollo web a la medida para negocios | FebaCode",
+    seoDescription: "Páginas web, landings y tiendas en línea para negocios y PyMEs de México, con WhatsApp integrado. Landing desde $3,500 MXN. Cotiza con FebaCode.",
+    h1: "Tu negocio en internet, listo para recibir clientes.",
+    lead: "Páginas y tiendas en línea claras, rápidas y con WhatsApp integrado, hechas a la medida de tu marca.",
+    includes: [
+      "Landing page profesional",
+      "Formulario de contacto integrado",
+      "Menú digital con QR (restaurantes y cafeterías)",
+      "Diseño responsivo y adaptado a tu marca",
+      "Integración con WhatsApp",
+      "Soporte técnico inicial",
+    ],
+    grows: [
+      "Sitios de hasta 5 secciones con SEO básico",
+      "Tiendas en línea o sistemas de reservaciones",
+      "Pagos con Stripe, PayPal y MercadoPago",
+      "Panel para editar tu contenido",
+    ],
+    forWho: "Emprendedores, profesionistas, restaurantes y negocios pequeños que quieren estar en internet sin complicarse.",
+    extras: ["Hosting y respaldo", "Mantenimiento mensual", "Posicionamiento SEO", "Marketing digital"],
+  },
+  "sistemas-empresariales": {
+    pillar: "sistemas",
+    wa: "sistemas",
+    seoTitle: "Sistemas empresariales: punto de venta e inventario | FebaCode",
+    seoDescription: "Sistemas de punto de venta, inventario y reportes a la medida para negocios y PyMEs de México. Desde $7,000 MXN. Cotiza con FebaCode.",
+    h1: "Ventas, inventario y reportes en un solo lugar.",
+    lead: "Sistemas administrativos y de gestión que se adaptan a cómo trabaja tu negocio, no al revés.",
+    includes: [
+      "Punto de venta básico: ventas y caja",
+      "Inventario sencillo con alertas de stock bajo",
+      "Uno o dos usuarios",
+      "Reportes básicos de ventas e inventario",
+      "Soporte técnico y capacitación inicial",
+    ],
+    grows: [
+      "Punto de venta avanzado y multi-almacén",
+      "Control de ingresos y egresos",
+      "CRM para tus clientes",
+      "Roles, permisos y facturación CFDI 4.0",
+      "Agendamiento, dashboards y desarrollo a la medida",
+    ],
+    forWho: "Negocios en crecimiento que hoy llevan ventas e inventario en cuadernos, hojas de cálculo o varias herramientas separadas.",
+    extras: ["App móvil empresarial", "Multi-sucursal o multi-empresa", "Integración con marketplace o e-commerce", "Hosting y respaldo de datos"],
+  },
+  "plataformas-con-ia": {
+    pillar: "ia",
+    wa: "ia",
+    seoTitle: "Plataformas con IA: chatbots y automatización | FebaCode",
+    seoDescription: "Chatbots para WhatsApp, web y Facebook y automatización con inteligencia artificial para negocios de México. Desde $7,000 MXN. Cotiza con FebaCode.",
+    h1: "Atiende y automatiza lo repetitivo con inteligencia artificial.",
+    lead: "Asistentes y automatizaciones que responden, recopilan datos y te quitan tareas repetitivas.",
+    includes: [
+      "Asistente inteligente básico para tu sitio web, WhatsApp o Facebook",
+      "Respuestas automáticas a preguntas frecuentes",
+      "Extracción sencilla de datos públicos hacia Excel, CSV o Google Sheets",
+      "Soporte técnico y capacitación inicial",
+    ],
+    grows: [
+      "Asistentes multicanal conectados a tus datos",
+      "Analítica y paneles de visualización",
+      "Alertas y notificaciones personalizadas",
+      "Modelos de análisis y predicción a la medida",
+    ],
+    forWho: "Negocios que contestan lo mismo todo el día o que pierden tiempo copiando información de un lugar a otro.",
+    extras: ["Integración con apps móviles", "Procesamiento de imágenes o audio", "Notificaciones push", "Capacitación y consultoría avanzada"],
+  },
+  "negocios-locales": {
+    pillar: "local",
+    wa: "local",
+    seoTitle: "Soluciones digitales para negocios locales | FebaCode",
+    seoDescription: "Tecnología a la medida para restaurantes, clínicas, consultorios, gimnasios, barberías y tiendas de México. Cotización personalizada con FebaCode.",
+    h1: "Algo hecho a la medida de tu negocio.",
+    lead: "Si tu restaurante, clínica, gimnasio, barbería o tienda necesita un salto digital concreto, lo diseñamos contigo.",
+    includes: [
+      "Entendemos cómo trabaja tu negocio",
+      "Proponemos lo mínimo que necesitas, sin cosas de más",
+      "Combinamos sitio, sistema o asistente según tu caso",
+      "Te acompañamos en el lanzamiento",
+    ],
+    grows: [
+      "Menú digital con QR",
+      "Agenda de citas o reservaciones",
+      "Control de inventario y ventas",
+      "Atención automática por WhatsApp",
+    ],
+    forWho: "Restaurantes, clínicas, consultorios, gimnasios, barberías y abarrotes que quieren resultados medibles.",
+    extras: [],
+  },
+}
+
+export const notIncludedList = notIncluded

@@ -1,0 +1,100 @@
+/* Tokens de diseño. Paleta oficial: #1A1F36, #00BFD8, #F65F4C, #FFFFFF, #D9D9D9.
+   Todo lo demás son opacidades o mezclas de esos cinco valores. */
+:root {
+  --navy: #1a1f36;
+  --aqua: #00bfd8;
+  --coral: #f65f4c;
+  --white: #ffffff;
+  --gray: #d9d9d9;
+
+  /* Semánticos: modo claro (por defecto) */
+  --bg: var(--white);
+  --bg-alt: color-mix(in srgb, var(--gray) 28%, var(--white));
+  --text: var(--navy);
+  --muted: color-mix(in srgb, var(--navy) 78%, var(--white));
+  --line: var(--gray);
+  --surface: var(--white);
+  --surface-text: var(--navy);
+  --tag-bg: var(--gray);
+  --tag-text: var(--navy);
+  --mark-bg: var(--aqua);
+  --mark-text: var(--navy);
+  --panel: var(--navy);
+  --panel-text: var(--white);
+  --panel-muted: var(--gray);
+  --panel-line: rgba(255, 255, 255, 0.25);
+  --panel-border: transparent;
+  --focus: var(--navy);
+  --link: var(--navy);
+  --shadow: 0 30px 60px -30px rgba(26, 31, 54, 0.5);
+  --shadow-sm: 0 12px 30px -18px rgba(26, 31, 54, 0.45);
+  color-scheme: light;
+
+  /* Tipografía */
+  --font-sans: "Manrope Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --fs-h1: clamp(2.375rem, 5.6vw, 4.375rem);
+  --fs-h2: clamp(1.75rem, 3.6vw, 2.75rem);
+  --fs-h3: 1.375rem;
+  --fs-body: 1.125rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.8125rem;
+
+  /* Espaciado (base 8 px) */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2rem;
+  --s-6: 3rem;
+  --s-9: 4.5rem;
+  --s-12: 6rem;
+  --section-y: clamp(4rem, 9vw, 6rem);
+  --gutter: clamp(1rem, 5vw, 4rem);
+  --container: 75rem;
+
+  /* Forma */
+  --r-sm: 0.875rem;
+  --r-md: 1.5rem;
+  --r-pill: 999px;
+  --tap: 2.75rem; /* 44 px: objetivo táctil mínimo */
+
+  /* Movimiento */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-micro: 150ms;
+  --t-ui: 260ms;
+  --t-section: 600ms;
+
+  /* Capas */
+  --z-fab: 40;
+  --z-header: 50;
+  --z-menu: 60;
+}
+
+:root[data-theme="dark"] {
+  --bg: var(--navy);
+  --bg-alt: color-mix(in srgb, var(--white) 5%, var(--navy));
+  --text: var(--white);
+  --muted: var(--gray);
+  --line: rgba(255, 255, 255, 0.14);
+  --surface: color-mix(in srgb, var(--white) 8%, var(--navy));
+  --surface-text: var(--white);
+  --tag-bg: rgba(255, 255, 255, 0.08);
+  --tag-text: var(--white);
+  --mark-bg: transparent;
+  --mark-text: var(--aqua);
+  --panel: color-mix(in srgb, var(--white) 8%, var(--navy));
+  --panel-border: rgba(255, 255, 255, 0.1);
+  --focus: var(--aqua);
+  --link: var(--aqua);
+  --shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 12px 30px -18px rgba(0, 0, 0, 0.7);
+  color-scheme: dark;
+}
+
+/* Pantallas grandes: la base tipográfica sube para que 2K/4K no se vean diminutos */
+@media (min-width: 2200px) {
+  html { font-size: 112.5%; }
+}
+@media (min-width: 3200px) {
+  html { font-size: 125%; }
+}

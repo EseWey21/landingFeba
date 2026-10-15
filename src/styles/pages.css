@@ -1,0 +1,31 @@
+/* Subpáginas de servicio, legales y 404 */
+.page-hero { padding-block: clamp(2.5rem, 7vw, 5.5rem) var(--s-6); }
+.page-hero-inner h1 { margin-top: var(--s-3); font-size: var(--fs-h1); max-width: 18ch; }
+.page-lead { margin-top: var(--s-3); max-width: 44ch; color: var(--muted); font-size: clamp(1.0625rem, 2vw, 1.25rem); }
+.page-price { margin-top: var(--s-3); font: 500 1.125rem / 1.2 var(--font-mono); }
+.page-price strong { font: 800 clamp(1.75rem, 4vw, 2.5rem) / 1.1 var(--font-sans); letter-spacing: -0.03em; }
+.page-hero .fine { margin-top: 0.5rem; }
+.page-hero .hero-cta { margin-top: var(--s-3); }
+
+.two-col { display: grid; gap: var(--s-6); grid-template-columns: 1fr; }
+.two-col h2 { font-size: clamp(1.375rem, 2.6vw, 1.75rem); margin-bottom: var(--s-3); }
+@media (min-width: 800px) { .two-col { grid-template-columns: 1fr 1fr; gap: var(--s-9); } }
+
+.check-list { display: grid; gap: 0.875rem; }
+.check-list li { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 1.0625rem; }
+.check-list svg { flex: none; margin-top: 0.2rem; padding: 2px; width: 1.25rem; height: 1.25rem; border-radius: 50%; background: var(--aqua); color: var(--navy); }
+.plain-list { display: grid; gap: 0.5rem; }
+.plain-list li { position: relative; padding-left: 1.25rem; font-size: 1.0625rem; }
+.plain-list li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--aqua); }
+.muted { color: var(--muted); font-size: 1.0625rem; max-width: 46ch; }
+.two-col .fine { margin-top: var(--s-2); }
+
+/* Legales */
+.legal-body { max-width: 46rem; }
+.legal-intro { font-size: 1.125rem; color: var(--muted); margin-bottom: var(--s-4); }
+.legal-section { margin-top: var(--s-4); }
+.legal-section h2 { font-size: 1.375rem; margin-bottom: 0.75rem; }
+.legal-section p { margin-bottom: 0.75rem; }
+.legal-section .plain-list { margin-bottom: 0.75rem; }
+
+.notfound { min-height: 55vh; display: grid; align-items: center; }

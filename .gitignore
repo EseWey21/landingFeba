@@ -27,3 +27,4 @@ dist-ssr
 # Evidencia local y herramientas
 docs/rediseno/evidencia/
 .playwright-mcp/
+dist-ssr
