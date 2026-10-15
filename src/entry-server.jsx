@@ -2,6 +2,8 @@ import { renderToString } from "react-dom/server"
 import { StaticRouter } from "react-router-dom"
 import App from "./App"
 import { routes, notFoundRoute } from "./routes.jsx"
+import { claims } from "./config/claims"
+import { pillars, formatMXN } from "./config/pricing"
 
 // Devuelve el HTML de una ruta y los datos de su <head>.
 export function render(url) {
@@ -19,4 +21,4 @@ export function render(url) {
   }
 }
 
-export { routes, notFoundRoute }
+export { routes, notFoundRoute, claims, pillars, formatMXN }

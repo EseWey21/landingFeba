@@ -11,7 +11,11 @@ const SITE = "https://www.febacode.com"
 
 const template = fs.readFileSync(path.join(dist, "index.html"), "utf-8")
 const ssrFile = fs.readdirSync(ssrDir).find((f) => /^entry-server.*\.js$/.test(f))
-const { render, routes, notFoundRoute } = await import(pathToFileURL(path.join(ssrDir, ssrFile)).href)
+const { render, routes, notFoundRoute, claims, pillars, formatMXN } = await import(pathToFileURL(path.join(ssrDir, ssrFile)).href)
+
+// Precarga de la tipografía principal (subconjunto latino) para acortar el LCP
+const manrope = fs.readdirSync(path.join(dist, "assets")).find((f) => /^manrope-latin-wght-normal-.*\.woff2$/.test(f))
+const fontPreload = manrope ? `<link rel="preload" href="/assets/${manrope}" as="font" type="font/woff2" crossorigin />` : ""
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;")
 
@@ -45,11 +49,41 @@ const headFor = (route, urlPath, ld) => {
 const build = (url, route, isNotFound = false) => {
   const { html, jsonLd } = render(isNotFound ? "/no-encontrada" : url)
   const head = headFor(route, isNotFound ? "/" : url, jsonLd)
+  const preload = fontPreload ? `
+    ${fontPreload}` : ""
   const robots = isNotFound ? `\n    <meta name="robots" content="noindex" />` : ""
-  return template.replace("<!--head-meta-->", head + robots).replace("<!--app-html-->", html)
+  return template.replace("<!--head-meta-->", head + robots + preload).replace("<!--app-html-->", html)
+}
+
+// Salvaguardas de contenido: el build falla si algo no aprobado llega al HTML.
+const bannedText = [
+  ...claims.filter((c) => !c.confirmed).map((c) => c.text),
+  "[CONFIRMAR]",
+  "Casa Oliva",
+  "UniiMarket",
+  "BestPCDeals",
+]
+const publishedFrom = new Set(Object.values(pillars).map((p) => p.from).filter(Boolean))
+const hiddenPrices = []
+for (const pillar of Object.values(pillars)) {
+  for (const t of pillar.tiers) {
+    if (t.published) continue
+    for (const v of [t.min, t.max, t.fromOnly]) {
+      if (v && !publishedFrom.has(v)) hiddenPrices.push(formatMXN(v))
+    }
+  }
+}
+const guard = (file, content) => {
+  const text = content.replace(/<script[\s\S]*?<\/script>/g, "")
+  const hits = bannedText.filter((t) => text.includes(t))
+  const prices = hiddenPrices.filter((p) => new RegExp(p.replace("$", "\$") + "(?![\d,])").test(text))
+  if (hits.length || prices.length) {
+    throw new Error(`Contenido no aprobado en ${file}: ${[...hits, ...prices].join(" | ")}`)
+  }
 }
 
 const write = (file, content) => {
+  guard(file, content)
   fs.mkdirSync(path.dirname(file), { recursive: true })
   fs.writeFileSync(file, content)
 }

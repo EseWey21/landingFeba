@@ -11,8 +11,11 @@
 .hero-badges li:first-child::before { content: none; }
 
 /* Entrada orquestada del hero (≤ 1.2 s, solo transform y opacity) */
-.hero-in { animation: hero-in 0.7s var(--ease) both; animation-delay: calc(var(--i, 0) * 90ms); }
+.hero-in { animation: hero-in 0.55s var(--ease) both; animation-delay: calc(var(--i, 0) * 70ms); }
 @keyframes hero-in { from { opacity: 0; transform: translateY(1rem); } }
+/* El titular es el elemento más grande (LCP): solo se desplaza, no se oculta */
+.hero h1.hero-in { animation-name: hero-rise; }
+@keyframes hero-rise { from { transform: translateY(0.75rem); } }
 
 /* Selector de servicio */
 .picker {
