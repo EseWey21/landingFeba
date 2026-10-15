@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AnimatePresence mode="wait">
       <App />
-      <SpeedInsights />
     </AnimatePresence>
+    <SpeedInsights />
   </React.StrictMode>,
 )
