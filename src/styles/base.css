@@ -128,7 +128,7 @@ mark.hl {
   transition: opacity var(--t-section) var(--ease), transform var(--t-section) var(--ease);
   transition-delay: var(--d, 0ms);
 }
-.js [data-reveal].in { opacity: 1; transform: none; }
+.js [data-reveal][data-in] { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
