@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>FebaCode | Software, sitios web e IA para negocios en México</title>
-    <meta name="description" content="FebaCode crea software, sitios web y soluciones con inteligencia artificial a la medida para negocios y PyMEs de México. Cotiza por WhatsApp." />
-    <link rel="canonical" href="https://www.febacode.com/" />
+    <meta name="color-scheme" content="light dark" />
+    <!--head-meta-->
     <meta name="theme-color" content="#1A1F36" />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -13,16 +12,26 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_MX" />
-    <meta property="og:site_name" content="FebaCode" />
-    <meta property="og:title" content="FebaCode | Software, sitios web e IA para negocios en México" />
-    <meta property="og:description" content="Software, sitios web y soluciones con IA a la medida para negocios y PyMEs de México." />
-    <meta property="og:url" content="https://www.febacode.com/" />
-    <meta name="twitter:card" content="summary" />
+    <script>
+      /* Antes del primer pintado: fija el tema y marca que hay JS. Si la app no
+         carga en 4 s, se muestran los bloques que esperan su animación de entrada. */
+      (function () {
+        var d = document.documentElement
+        var t
+        try { t = localStorage.getItem("theme") } catch (e) {}
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+        }
+        d.setAttribute("data-theme", t)
+        d.classList.add("js")
+        setTimeout(function () {
+          if (!window.__appReady) d.classList.add("reveal-fallback")
+        }, 4000)
+      })()
+    </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/entry-client.jsx"></script>
   </body>
 </html>
