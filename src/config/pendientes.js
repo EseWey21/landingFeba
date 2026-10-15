@@ -8,6 +8,12 @@ export const pendingClaims = [
   { id: "tiempos-de-entrega", text: "Tiempos de entrega por tipo de proyecto." },
   { id: "servidores-propios", text: "Servidores propios." },
   { id: "integraciones-extra", text: "Integraciones con Odoo, CONTPAQi, Google Cloud y otras." },
+  // Del catálogo 2026 (sección de condiciones generales): aún sin aprobación para el sitio
+  { id: "sin-rentas-por-usuario", text: "sin rentas forzosas por cada usuario" },
+  { id: "propiedad-de-tu-solucion", text: "Propiedad de tu solución" },
+  { id: "atencion-24-7", text: "24/7" },
+  { id: "ventaja-vs-agencias", text: "ventaja de 30% a 50%" },
+  { id: "garantia-inicial", text: "1 a 3 meses de garantía" },
 ]
 
 // Preguntas frecuentes que dependen de una afirmación pendiente.

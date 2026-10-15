@@ -2,11 +2,12 @@
 // están en pendientes.js y no se importan aquí. Las respuestas no prometen plazos
 // ni propiedad del código.
 import { claimText } from "./claims"
+import { fromAmount } from "./pricing"
 
 export const faqItems = [
   {
     q: "¿Cuánto cuesta una página o un sistema?",
-    a: `Una landing desde $3,500 MXN; sistemas e inteligencia artificial desde $7,000 MXN. El precio exacto depende de tu alcance y te lo damos claro por WhatsApp. ${claimText("sin-costos-ocultos") ?? ""}`.trim(),
+    a: `Una landing desde ${fromAmount("web")}; negocios locales desde ${fromAmount("local")}; sistemas desde ${fromAmount("sistemas")} e inteligencia artificial desde ${fromAmount("ia")}. El precio exacto depende de tu alcance y te lo damos claro por WhatsApp. ${claimText("sin-costos-ocultos") ?? ""}`.trim(),
   },
   {
     q: "¿En cuánto tiempo entregan?",

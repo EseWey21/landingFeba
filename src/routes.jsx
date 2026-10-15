@@ -6,11 +6,10 @@ import NotFound from "./pages/NotFound"
 import { services } from "./config/services"
 import { site } from "./config/site"
 import { faqItems } from "./config/faq"
-import { pillars } from "./config/pricing"
+import { pillars, fromAmount } from "./config/pricing"
 
 const HOME_TITLE = "FebaCode | Software, sitios web e IA para negocios en México"
-const HOME_DESCRIPTION =
-  "Software, sitios web y soluciones con IA a la medida para negocios y PyMEs de México. Landing desde $3,500 MXN. Cotiza por WhatsApp con FebaCode."
+const HOME_DESCRIPTION = `Software, sitios web y soluciones con IA a la medida para negocios y PyMEs de México. Landing desde ${fromAmount("web")}. Cotiza por WhatsApp con FebaCode.`
 
 // JSON-LD: solo datos verdaderos. Sin calificaciones, reseñas ni premios.
 const organization = () => ({

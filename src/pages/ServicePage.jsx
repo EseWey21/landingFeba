@@ -17,7 +17,6 @@ const ServicePage = ({ slug }) => {
           <p className="page-lead">{s.lead}</p>
           <p className="page-price">
             <strong>{fromLabel(s.pillar)}</strong>
-            {hasPrice && <span> MXN</span>}
           </p>
           {hasPrice && <p className="fine">{PRICE_DISCLAIMER}</p>}
           <div className="hero-cta">

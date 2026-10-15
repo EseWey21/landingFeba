@@ -5,6 +5,7 @@ import path from "node:path"
 import { pathToFileURL } from "node:url"
 import { catalog } from "../src/config/catalogo.js"
 import { pendingClaims, pendingFaq } from "../src/config/pendientes.js"
+import { pillars as publishedPillars } from "../src/config/pricing.js"
 
 const root = process.cwd()
 const dist = path.join(root, "dist")
@@ -74,6 +75,16 @@ const publishedFrom = new Set(
 )
 const hidden = Object.values(catalog).flatMap((p) => p.tiers.filter((t) => !t.published))
 // Solo nombres distintivos: los de una palabra ("Empresarial") aparecen legítimamente en otros textos
+// Los precios publicados (pricing.js) deben coincidir con el primer paquete del catálogo
+for (const [id, pillar] of Object.entries(catalog)) {
+  const entry = pillar.tiers.find((t) => t.published)
+  if (!entry || publishedPillars[id]?.from !== entry.min) {
+    throw new Error(`pricing.js no coincide con catalogo.js en "${id}": ${publishedPillars[id]?.from} vs ${entry?.min}`)
+  }
+}
+// Únicos montos que pueden aparecer en el sitio: las entradas "desde"
+const allowedAmounts = new Set([...publishedFrom].map(formatMXN))
+
 const hiddenNames = hidden.map((t) => t.name).filter((n) => n.includes(" ") && n.length >= 14)
 const hiddenAmounts = [
   ...new Set(hidden.flatMap((t) => [t.min, t.max, t.fromOnly]).filter((v) => v && !publishedFrom.has(v))),
@@ -85,8 +96,11 @@ const guardHtml = (file, content) => {
   const prices = hiddenAmounts
     .map(formatMXN)
     .filter((p) => new RegExp(p.replace("$", "\$") + "(?![\d,])").test(text))
-  if (hits.length || prices.length) {
-    throw new Error(`Contenido no aprobado en ${file}: ${[...hits, ...prices].join(" | ")}`)
+  // Cualquier monto en pesos del HTML (incluido el JSON-LD) debe ser una entrada publicada:
+  // así también se detecta un precio viejo que se quedó escrito a mano.
+  const stray = [...content.matchAll(/\$\d{1,3}(?:,\d{3})+/g)].map((m) => m[0]).filter((a) => !allowedAmounts.has(a))
+  if (hits.length || prices.length || stray.length) {
+    throw new Error(`Contenido no aprobado en ${file}: ${[...hits, ...prices, ...stray].join(" | ")}`)
   }
 }
 
