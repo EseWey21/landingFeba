@@ -76,10 +76,10 @@
   .navbar-container { min-height: 62px; }
   .desktop-menu { display: none; }
   .navbar-toggle { display: block; }
-  .mobile-menu { display: block; position: fixed; z-index: 10; inset: 0; padding: 20px; background: #fff; color: var(--ink); }
+  .mobile-menu { display: block; position: fixed; z-index: 1100; inset: 0; padding: 20px; padding-top: max(20px, env(safe-area-inset-top)); padding-bottom: max(20px, env(safe-area-inset-bottom)); overflow-y: auto; background: #fff; color: var(--ink); }
   .mobile-menu-header { display: flex; align-items: center; justify-content: space-between; }
-  .mobile-close-btn { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid #dce4ed; border-radius: 10px; }
-  .mobile-menu-content { display: grid; min-height: calc(100vh - 80px); place-items: center; }
+  .mobile-close-btn { display: grid; width: 44px; height: 44px; place-items: center; border: 1px solid #dce4ed; border-radius: 10px; background: transparent; color: var(--ink); cursor: pointer; }
+  .mobile-menu-content { display: grid; min-height: calc(100dvh - 100px); place-items: center; }
   .mobile-links { display: flex; flex-direction: column; gap: 18px; list-style: none; text-align: center; }
   .mobile-links a { font-size: 1.8rem; font-weight: 800; letter-spacing: -.05em; }
   .mobile-links a.active { color: var(--blue); }
@@ -87,3 +87,7 @@
   .mobile-cta a { display: block; }
   .mobile-cta .btn { padding: 14px 20px; border-radius: 8px; background: var(--orange); color: #fff; }
 }
+
+/* El botón del menú es un <button> real: se restablece el estilo nativo */
+button.navbar-toggle { padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; min-width: 44px; min-height: 44px; }
+.mobile-logo { display: inline-flex; }

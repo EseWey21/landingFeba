@@ -1,11 +1,13 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import { createPortal } from "react-dom"
 import { useNavigate, useLocation } from "react-router-dom" // Agregando hooks de React Router
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Logo from "./Logo"
 import { waLink } from "../config/site"
+import { navSections } from "../config/nav"
 import "../styles/Navbar.css"
 
 const Navbar = () => {
@@ -15,6 +17,8 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("inicio")
   const lastScrollY = useRef(0)
   const ticking = useRef(false)
+  const menuRef = useRef(null)
+  const toggleRef = useRef(null)
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -128,6 +132,39 @@ const Navbar = () => {
     }
   }, [isOpen])
 
+  // Menú móvil: Esc cierra, el foco se queda dentro y regresa al botón al cerrar
+  useEffect(() => {
+    if (!isOpen) return
+    const toggle = toggleRef.current
+    const menu = menuRef.current
+    const focusables = () =>
+      menu ? Array.from(menu.querySelectorAll("a[href], button:not([disabled])")) : []
+    menu?.querySelector(".mobile-close-btn")?.focus()
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsOpen(false)
+        return
+      }
+      if (event.key !== "Tab") return
+      const items = focusables()
+      if (!items.length) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener("keydown", onKeyDown)
+    return () => {
+      document.removeEventListener("keydown", onKeyDown)
+      toggle?.focus()
+    }
+  }, [isOpen])
+
   const navVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
@@ -179,8 +216,9 @@ const Navbar = () => {
   //const mobileLogoScrolled = true
 
   return (
+    <>
     <motion.nav
-      className={`navbar ${scrolled ? "scrolled" : ""} ${visible ? "" : "hidden"}`}
+      className={`navbar ${scrolled ? "scrolled" : ""} ${visible || isOpen ? "" : "hidden"}`}
       initial="hidden"
       animate="visible"
       variants={navVariants}
@@ -194,14 +232,14 @@ const Navbar = () => {
 
         <motion.div className="navbar-menu desktop-menu" variants={navVariants}>
           <ul className="navbar-links">
-            {["inicio", "servicios", "nosotros", "contacto"].map((section, index) => (
+            {navSections.map(({ id: section, label }) => (
               <motion.li key={section} variants={itemVariants}>
                 <a
                   href={`#${section}`}
                   onClick={(e) => handleNavClick(e, section)}
                   className={activeSection === section && location.pathname === "/" ? "active" : ""} // Solo mostrar activo en página principal
                 >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  {label}
                   {activeSection === section &&
                     location.pathname === "/" && ( // Solo mostrar indicador en página principal
                       <motion.span
@@ -229,45 +267,56 @@ const Navbar = () => {
           </motion.a>
         </motion.div>
 
-        {!isOpen && (
-          <motion.div
-            className="navbar-toggle"
-            onClick={() => setIsOpen(true)}
-            variants={itemVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <div className="menu-icon-container">
-              <Menu size={24} />
-            </div>
-          </motion.div>
-        )}
+        <motion.button
+          type="button"
+          ref={toggleRef}
+          className="navbar-toggle"
+          aria-label="Abrir menú"
+          aria-expanded={isOpen}
+          aria-controls="menu-movil"
+          onClick={() => setIsOpen(true)}
+          variants={itemVariants}
+          whileTap={{ scale: 0.9 }}
+        >
+          <span className="menu-icon-container">
+            <Menu size={24} />
+          </span>
+        </motion.button>
 
-        <AnimatePresence>
+      </div>
+    </motion.nav>
+    {createPortal(
+      <AnimatePresence>
           {isOpen && (
             <motion.div
               className="mobile-menu"
+              id="menu-movil"
+              ref={menuRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menú"
               initial="hidden"
               animate="visible"
               exit="exit"
               variants={mobileMenuVariants}
             >
               <div className="mobile-menu-header">
-                <div className="mobile-logo" onClick={handleLogoClick}>
+                <a className="mobile-logo" href="#inicio" onClick={handleLogoClick}>
                   <Logo scrolled={true} />
-                </div>
-                <motion.div
+                </a>
+                <motion.button
+                  type="button"
                   className="mobile-close-btn"
+                  aria-label="Cerrar menú"
                   onClick={() => setIsOpen(false)}
-                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
                   <X size={24} />
-                </motion.div>
+                </motion.button>
               </div>
               <div className="mobile-menu-content">
                 <ul className="mobile-links">
-                  {["inicio", "servicios", "nosotros", "proyectos", "contacto"].map((section, index) => (
+                  {navSections.map(({ id: section, label }, index) => (
                     <motion.li
                       key={section}
                       initial={{ opacity: 0, y: 20 }}
@@ -282,7 +331,7 @@ const Navbar = () => {
                         onClick={(e) => handleNavClick(e, section)}
                         className={activeSection === section && location.pathname === "/" ? "active" : ""} // Solo mostrar activo en página principal
                       >
-                        {section.charAt(0).toUpperCase() + section.slice(1)}
+                        {label}
                       </a>
                     </motion.li>
                   ))}
@@ -301,15 +350,15 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button className="btn btn-cta">Cotiza tu proyecto</button>
+                    <span className="btn btn-cta">Cotiza tu proyecto</span>
                   </a>
                 </motion.div>
               </div>
             </motion.div>
           )}
-        </AnimatePresence>
-      </div>
-    </motion.nav>
+      </AnimatePresence>
+      , document.body)}
+    </>
   )
 }
 
